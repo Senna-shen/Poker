@@ -23,9 +23,9 @@ body{background:#0c1220;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
 .notch{display:none;}
 .top-bar{background:#0f172a;padding:calc(10px + env(safe-area-inset-top)) 18px 10px;display:flex;align-items:center;border-bottom:0.5px solid #1e293b;flex-shrink:0;}
 .app-logo{font-size:17px;font-weight:600;color:#60a5fa;letter-spacing:0.5px;}
-.street-tabs-top{background:#0c1220;display:flex;padding:8px 8px 0;gap:4px;overflow-x:visible;border-bottom:0.5px solid #1e293b;-webkit-mask-image:none;mask-image:none;}
+.street-tabs-top{background:#0c1220;display:flex;padding:8px 4px 0;gap:2px;overflow-x:visible;border-bottom:0.5px solid #1e293b;-webkit-mask-image:none;mask-image:none;}
 .street-tabs-top::-webkit-scrollbar{display:none;}
-.stab{width:100%;text-align:center;padding:8px 4px;border-radius:10px 10px 0 0;font-size:12px;font-weight:700;color:#c8d6e8;cursor:pointer;border:0.5px solid transparent;border-bottom:none;white-space:nowrap;}
+.stab{width:100%;text-align:center;padding:8px 2px;border-radius:10px 10px 0 0;font-size:11px;font-weight:700;color:#c8d6e8;cursor:pointer;border:0.5px solid transparent;border-bottom:none;white-space:nowrap;}
 .stab-wrap{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:stretch;position:relative;}
 #subnav{display:flex;flex-shrink:0;overflow-x:visible;scrollbar-width:none;-ms-overflow-style:none;padding:0 8px;border-bottom:0.5px solid #1e293b;border-left:0.5px solid #1e293b;border-right:0.5px solid #1e293b;background:#0f1a2e;}
 .stab.active{color:#60a5fa;background:#0f172a;border-color:#1e293b;border-bottom-color:#0f172a;}
@@ -121,7 +121,7 @@ svg{max-width:100%;box-sizing:border-box;}
 <div class="notch"></div>
 <div class="top-bar"><div class="app-logo">Texas Hold'em Home Game</div></div>
 <div class="street-tabs-top" id="street-tabs-top">
-  <div class="stab-wrap"><div class="stab active" id="stab-0">Overview</div><div class="stab-prog" id="prog-dots-0"></div></div>
+  <div class="stab-wrap"><div class="stab active" id="stab-0">Playbook</div><div class="stab-prog" id="prog-dots-0"></div></div>
   <div class="stab-wrap"><div class="stab" id="stab-1">Preflop</div><div class="stab-prog" id="prog-dots-1"></div></div>
   <div class="stab-wrap"><div class="stab" id="stab-2">Flop</div><div class="stab-prog" id="prog-dots-2"></div></div>
   <div class="stab-wrap"><div class="stab" id="stab-3">Turn</div><div class="stab-prog" id="prog-dots-3"></div></div>
@@ -131,271 +131,108 @@ svg{max-width:100%;box-sizing:border-box;}
 <div class="subnav" id="subnav"></div>
 <div class="content">
 
-<!-- Overview -->
-<div class="spage active" id="s0" style="display: block;">
-<div class="subpage active" id="s0p0">
-
-  <!-- progress overview -->
-  <div class="prog-card" id="prog-overview" style="margin-top:12px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;">
-      <div style="font-size:13px;font-weight:600;color:#f1f5f9;">Progress</div>
-      <div id="prog-text" style="font-size:12px;color:#475569;">0 / 19</div>
-    </div>
-    <div class="prog-bar-bg"><div class="prog-bar-fill" id="prog-bar" style="width:0%;"></div></div>
-    <div id="prog-chapters" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:2px;"></div>
-  </div>
-
-  <div style="margin:8px 0 0;padding:12px 0 8px;">
-    <div style="font-size:17px;font-weight:700;color:#f1f5f9;">Overview</div>
-  </div>
-
-  <div class="pc" style="border-color:#60a5fa;background:#0a1020;">
-    <div class="pt" style="color:#60a5fa;">This is a Texas Hold'em system built specifically for home games.</div>
-    <div class="pb">No complex theory. No pro-level balance concepts. No flashy moves.
-The goal is simple: help you avoid the most expensive, most common, and most repeatable mistakes in home games.</div>
-    <div style="margin-top:10px;font-size:13px;font-weight:700;color:#fbbf24;border-top:1px solid #1e293b;padding-top:10px;">If you want to win consistently in home games, the answer is often simple: make fewer mistakes.</div>
-  </div>
-
-  <div class="pc">
-    <div class="pt">Only 44 starting hands are truly profitable in the long run.</div>
-    <div class="pb">For most home game players, the biggest problem is playing too many weak starting hands — or entering pots just to see a flop.<br><br>Based on an analysis of 130 million hands played by recreational live players, only 44 starting hands show consistent long-term profitability. If you stick to those 44 hands, your preflop edge alone is enough to give you a major advantage in most home games.</div>
-  </div>
-
-  <div class="pc">
-    <div class="pt">Why does this guide focus only on home games?</div>
-    <div class="pb">Reason 1: For most regular players, home games are the only format they actually play over the long term.<br><br>Reason 2: Online poker has rake, casinos have rake, and tournaments also carry structural costs. Over the long run, those formats tend to be negative EV for most ordinary players. A home game is the only setting that can realistically offer long-term positive EV.</div>
-    <div class="pr">A home game is not only the most common setting — it is also the only one that can realistically be positive EV over time.</div>
-  </div>
-
-  <div class="pc">
-    <div class="pt">Why have you watched so much poker content and still failed to beat your home game?</div>
-    <div class="pb">The problem is not that the content is wrong. The problem is that most poker content is built from a professional-game perspective.
-
-Home games are a very different environment: ranges are wider, limping is common, multiway pots happen more often, and large bluffs are far less frequent.<br><br>That means many advanced ideas you see in training videos — range balancing, polarized betting, and triple-barrel bluffing — are not well suited to home games. In many cases, they can even work against you.</div>
-    <div class="pr">In a home game, blindly copying professional strategy can turn you into the fish.</div>
-  </div>
-
-  <div class="pc" style="border-color:#fbbf24;background:#0a1020;">
-    <div class="pt" style="color:#fbbf24;">If you only remember one thing</div>
-    <div class="pb">Stay disciplined with the 44-hand preflop range.
-Play the right hands from the right positions.
-That alone is enough to beat most home games.</div>
-  </div>
-
-  <div class="pc">
-    <div class="pt">Why you should not judge a decision by the result of one hand</div>
-    <div class="pb">Poker contains randomness and variance. If a decision is positive EV in the long run, then it is still the correct decision even when you lose the hand.
-
-Never question your decision-making system based on one or two bad outcomes.</div>
-    <div class="pr">Make the right decision, and accept the variance.</div>
-  </div>
-
-  <div class="pc">
-    <div class="pt">Why bankroll management matters</div>
-    <div class="pb">The core purpose of bankroll management is simple: it keeps chip pressure from distorting your decisions.<br><br>Home games: 30–50 buy-ins recommended<br>Online games: 50–100 buy-ins recommended</div>
-    <div class="pr">When your bankroll is healthy, money pressure becomes smaller, and you can treat poker as a competitive discipline rather than an emotional gamble.</div>
-  </div>
-
-
-  <div class="pc">
-    <div class="pt">When people think you are too tight and stop wanting to play with you</div>
-    <div class="pb">Home games usually have very loose participation. If you strictly play only the 44 core hands, your VPIP will be much lower than everyone else's. Other players may see you as a rock, or even feel that playing with you is less fun.
-
-If that starts to affect the atmosphere of the game, there are two ways to loosen your image without breaking your core framework:<br><br>
-      <span style="color:#60a5fa;font-weight:600;">1. Occasionally limp from favorable position</span><br>
-      From the CO or BTN, you can sometimes limp into a multiway pot with a position-dependent hand. The goal is not to change your strategy dramatically — only to make the table feel that you are still willing to get involved.<br><br>
-      <span style="color:#60a5fa;font-weight:600;">2. Open a slightly wider stealing range from favorable positions</span><br>
-      From the BTN, the big blind, or the straddle, you can sometimes open hands outside the core 44 in order to steal blinds and improve table image. Suggested additions include:<br>
-      Ace-x combinations: ATo, A9o, A8o, A7o, A5o<br>
-      K-high combinations: KJo, QJo, JTo, K6s, K5s, K4s<br>
-      A few suited one-gappers: 97s, 86s<br><br>
-      <span style="color:#7a90aa;font-size:11px;">These hands are not long-term winners. They are used only to increase participation and manage your image at the table.</span>
-    </div>
-    <div class="pr">Table image is part of home game strategy too. If people still enjoy playing with you, you can keep getting invited — and that is how long-term profit remains possible.</div>
-  </div>
-
-  <div class="pc" style="border-color:#334155;background:#0c1220;">
-    <div class="pt" style="font-size:13px;color:#7a90aa;">Scope of this guide</div>
-    <div class="pb" style="font-size:12px;color:#7a90aa;line-height:1.8;">This guide is optimized for typical loose-passive home games with recreational players and no rake. Strategy recommendations are framework-based, not solver-derived. Adjustments may be needed for online cash games, tournaments, 6-max, or rake-heavy environments. For educational purposes only.</div>
-  </div>
-
+<div class="spage" id="s6" style="display:block;width:100%;overflow-y:visible;">
+<div class="subpage active" id="s6p0" style="display:block;padding:0 0 60px;background:#0f172a;width:100%;box-sizing:border-box;">
+<div id="s6-playbook-content"><div style="padding:calc(14px + env(safe-area-inset-top)) 20px 16px;background:linear-gradient(180deg,#162032 0%,#0f172a 100%);border-bottom:1px solid rgba(255,255,255,0.07);"><div style="font-size:9px;font-weight:700;letter-spacing:3px;color:#475569;text-transform:uppercase;margin-bottom:6px;">Quick Playbook</div><div style="font-size:21px;font-weight:900;color:#f1f5f9;letter-spacing:-0.5px;line-height:1.2;">Home Game Cheat Sheet</div></div><div style="position:relative;padding:20px 14px 0 14px;"><div style="position:absolute;left:33px;top:20px;bottom:40px;width:1.5px;background:linear-gradient(to bottom,#60a5fa,#34d399,#22d3ee,#fbbf24,#fb923c,#f87171);opacity:0.18;border-radius:2px;"></div>
+<div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#60a5fa;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #60a5fa;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #60a5fa30;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">Profit Principles <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#60a5fa;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #60a5fa30;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="handlePlaybookSubnav(1);document.querySelectorAll('#subnav .subtab').forEach(function(t,j){t.classList.toggle('active',j===1)});"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#60a5fa;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #60a5fa20;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="height:20px;"></div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#60a5fa;margin-right:5px;font-size:14px;">▸</span>Strong starting-hand ranges beat weaker starting-hand ranges</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#60a5fa;margin-right:5px;font-size:14px;">▸</span>Preflop calling should be tighter than opening</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#60a5fa;margin-right:5px;font-size:14px;">▸</span>Bet decisively when ahead</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#60a5fa;margin-right:5px;font-size:14px;">▸</span>With ordinary draws, chase only clean outs; do not chase against heavy betting, and do not chase when the odds are not there</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#60a5fa;margin-right:5px;font-size:14px;">▸</span>Respect heavy bets and re-raises</div></div></div></div><div style="margin-left:24px;width:2px;height:20px;background:linear-gradient(to bottom,#60a5fa50,transparent);"></div><div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#34d399;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #34d399;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #34d39930;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">Preflop <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#34d399;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #34d39930;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="switchStreet(1)"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#34d399;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #34d39920;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#34d399;margin-right:5px;font-size:14px;">▸</span>Play only the 44 starting hands that can be long-term positive EV</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#34d399;margin-right:5px;font-size:14px;">▸</span>Calling too easily means losing chips</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#34d399;margin-right:5px;font-size:14px;">▸</span>With strong starting hands, open or 3-bet aggressively to isolate</div></div></div></div><div style="margin-left:24px;width:2px;height:20px;background:linear-gradient(to bottom,#34d39950,transparent);"></div><div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#22d3ee;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #22d3ee;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #22d3ee30;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">Flop <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#22d3ee;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #22d3ee30;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="switchStreet(1)"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#22d3ee;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #22d3ee20;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#22d3ee;margin-right:5px;font-size:14px;">▸</span>In heads-up pots, attack on flops that favor you; check on unfavorable boards</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#22d3ee;margin-right:5px;font-size:14px;">▸</span>In multiway pots, bet decisively when ahead; if you have nothing, check/fold</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#22d3ee;margin-right:5px;font-size:14px;">▸</span>With ordinary draws, try to continue at low cost and do not build a big pot proactively</div></div></div></div><div style="margin-left:24px;width:2px;height:20px;background:linear-gradient(to bottom,#22d3ee50,transparent);"></div><div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#fbbf24;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #fbbf24;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #fbbf2430;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">Turn <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#fbbf24;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #fbbf2430;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="switchStreet(1)"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#fbbf24;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #fbbf2420;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fbbf24;margin-right:5px;font-size:14px;">▸</span>In heads-up pots, attack when your hand improves, keep attacking when unchanged, and stop when downgraded</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fbbf24;margin-right:5px;font-size:14px;">▸</span>In multiway pots, attack when your hand improves, check/call when unchanged, and stop when downgraded</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fbbf24;margin-right:5px;font-size:14px;">▸</span>On the turn, semi-bluff only</div></div></div></div><div style="margin-left:24px;width:2px;height:20px;background:linear-gradient(to bottom,#fbbf2450,transparent);"></div><div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#fb923c;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #fb923c;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #fb923c30;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">River <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#fb923c;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #fb923c30;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="switchStreet(1)"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#fb923c;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #fb923c20;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fb923c;margin-right:5px;font-size:14px;">▸</span>When ahead, choose your value-bet sizing based on the target hands you want called by</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fb923c;margin-right:5px;font-size:14px;">▸</span>In multiway pots, make fewer thin value bets on the river</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fb923c;margin-right:5px;font-size:14px;">▸</span>Facing heavy river betting, bluff-catch less and fold more often</div></div></div></div><div style="margin-left:24px;width:2px;height:20px;background:linear-gradient(to bottom,#fb923c50,transparent);"></div><div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#f87171;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #f87171;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #f8717130;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">Bluffing <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#f87171;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #f8717130;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="switchStreet(1)"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#f87171;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #f8717120;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#f87171;margin-right:5px;font-size:14px;">▸</span>Do not bluff calling stations, fish, or tilted players; bluff weak players more often</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#f87171;margin-right:5px;font-size:14px;">▸</span>Learn semi-bluff before pure air bluffs</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#f87171;margin-right:5px;font-size:14px;">▸</span>In heads-up pots, bluff on boards that favor you; in multiway pots, bluff less often</div></div></div></div>
 </div>
 
+<div style="padding:0 14px 20px;border-top:0.5px solid rgba(255,255,255,0.08);margin-top:24px;"><div class="pc" id="prog-overview" style="margin-top:0;"><div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-size:13px;font-weight:600;color:#f1f5f9;">Progress</div><div style="font-size:13px;color:#60a5fa;font-weight:600;" id="prog-text">0 / 16</div></div><div style="margin:8px 0;height:4px;background:#1e293b;border-radius:2px;overflow:hidden;"><div id="prog-bar" style="height:100%;background:#22c55e;border-radius:2px;width:0%;transition:width 0.4s;"></div></div><div id="prog-chapters" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;"></div></div></div>
+</div>
+<div id="s6-principles" style="display:none;background:#0f172a;">
+<div style="padding:28px 18px 40px;">
 
+<h2 style="font-size:18px;font-weight:900;color:#f1f5f9;margin-bottom:4px;letter-spacing:-0.3px;">5 Profit Principles<br>for Home Games</h2>
+<div style="height:2px;width:40px;background:#60a5fa;border-radius:2px;margin-bottom:32px;"></div>
 
-
-
-
-
-<div class="subpage" id="s0p2" style="display:none;">
-
-  <div style="margin:8px 0 0;padding:12px 0 8px;">
-    <div style="font-size:17px;font-weight:700;color:#f1f5f9;">5 Core Mindsets</div>
+<!-- Principle 1 -->
+<div style="margin-bottom:24px;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+    <div style="width:24px;height:24px;border-radius:50%;background:#60a5fa20;border:1.5px solid #60a5fa;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <span style="font-size:11px;font-weight:800;color:#60a5fa;">1</span>
+    </div>
+    <div style="font-size:14px;font-weight:800;color:#f1f5f9;line-height:1.3;">Strong starting-hand ranges beat weaker starting-hand ranges</div>
   </div>
-
-  <div class="pc">
-    <div class="pn">Mindset 01</div>
-    <div class="pt">Poker is not just entertainment — it is competition</div>
-    <div class="pb">If you enter pots with hands you should not play just for the sake of "having fun," then you are spending your chips on entertainment. Is that really what you want poker to be for you?<br><br>If you treat poker as a competitive game, then your goal is to win — not merely to take part.</div>
-    <div class="pr">Poker is competition. Your goal is victory.</div>
+  <div style="padding-left:34px;">
+    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">If your starting-hand range is consistently stronger than your opponent's range, then even if both of you play at the same skill level, you will still be profitable in the long run.</p>
+    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">This is the deepest profit logic in poker. A stronger range naturally makes bigger pairs, stronger flushes, better kickers, and stronger high-card hands when both players miss.</p>
+    <div style="background:#60a5fa10;border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;">
+      <span style="font-size:12px;font-weight:700;color:#60a5fa;">Rule: </span><span style="font-size:12px;color:#cbd5e1;">Long-term profit begins with starting from stronger ranges more often.</span>
+    </div>
   </div>
-
-  <div class="pc">
-    <div class="pn">Mindset 02</div>
-    <div class="pt">Position changes the value of every hand</div>
-    <div class="pb">When you are in position, you act later. If you are ahead, you may win an extra street of value. If you are behind, you may lose less by controlling the size of the pot.<br><br>When you are out of position, you act first. If you are ahead, you may miss value. If you are behind, you may lose more than you should.</div>
-    <div class="pr">Position is almost like moving your hand up one tier. 88 plays more like 99. AT plays more like AJ.</div>
-  </div>
-
-  <div class="pc">
-    <div class="pn">Mindset 03</div>
-    <div class="pt">When you are ahead, bet decisively for value</div>
-    <div class="pb">In home games, if your opponents have something, they usually will not fold just because you bet. If they have nothing, they usually will not call just because you bet small.<br><br>Home game players often call too much. If you are ahead and do not bet, you are simply giving money away.</div>
-    <div class="pr">Home game players tend to overcall. Value bet them.</div>
-  </div>
-
-  <div class="pc">
-    <div class="pn">Mindset 04</div>
-    <div class="pt">Only play stakes your bankroll can support</div>
-    <div class="pb">If you play above your bankroll level, money pressure will distort your decisions. Over the long run, that leads to losses.<br><br>If you play far below your level, you may stop respecting the value of chips and stop taking decisions seriously. That is a problem too.</div>
-    <div class="pr">The right friends, the right stakes, and the right game — that is the formula for beating home games.</div>
-  </div>
-
-  <div class="pc">
-    <div class="pn">Mindset 05</div>
-    <div class="pt">When you feel tilt coming, step away for a few minutes</div>
-    <div class="pb">After a streak of bad beats, a major loss, a run of dead cards, or someone provoking you at the table, if you notice yourself losing emotional control, step away for a few minutes.
-
-Take a natural break — go outside, use the bathroom, or pretend to take a phone call. Come back only after you have settled down.</div>
-    <div class="pr">The worst decision you can make on tilt is to keep playing.</div>
-  </div>
-
 </div>
 
-
-
-<div class="subpage" id="s0p3" style="display:none;">
-
-  <div style="margin:8px 0 0;padding:12px 0 8px;">
-    <div style="font-size:17px;font-weight:700;color:#f1f5f9;">Discipline System</div>
-  </div>
-
-  <div style="margin:4px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(96,165,250,0.08) 0%,transparent 100%);border-top:2px solid #60a5fa;">
-    <div style="font-size:15px;font-weight:700;color:#f1f5f9;"><span style="color:#60a5fa;">01</span> Three Main Sources of Profit in Poker</div>
-  </div>
-
-  <div class="pc">
-    <div class="pn">Source of Profit 1</div>
-    <div class="pt">Made hands vs. drawing hands</div>
-    <div class="pb">When you already have a made hand, your opponent has to pay to chase a draw.<br><br>
-      If they fold, you win the pot.<br>
-      If they miss, you win the pot — and sometimes also pick off a bluff.<br>
-      If they hit, but not a better hand than yours, you win an even bigger pot.<br>
-      If they hit and clearly move ahead, you may still be able to fold and avoid a larger loss.
+<!-- Principle 2 -->
+<div style="margin-bottom:24px;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+    <div style="width:24px;height:24px;border-radius:50%;background:#60a5fa20;border:1.5px solid #60a5fa;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <span style="font-size:11px;font-weight:800;color:#60a5fa;">2</span>
     </div>
-    <div class="pr">The purpose of betting with a made hand is to make your opponent pay too much to continue drawing.</div>
+    <div style="font-size:14px;font-weight:800;color:#f1f5f9;line-height:1.3;">Preflop calling should be tighter than opening</div>
   </div>
-
-  <div class="pc">
-    <div class="pn">Source of Profit 2</div>
-    <div class="pt">A bigger kicker</div>
-    <div class="pb">Weak-kicker hands win small pots and lose big ones. For example, if you hold A8 and your opponent holds AJ, and the flop comes with an ace, both of you make top pair — but your top pair actually becomes the reason you lose more money.<br><br>That is exactly why the 44-hand range excludes offsuit hands with weak kickers.</div>
-    <div class="pr">A weak kicker often means this: you hit your hand, but you are still behind — and you lose more because of it.</div>
-  </div>
-
-  <div class="pc">
-    <div class="pn">Source of Profit 3</div>
-    <div class="pt">Preferring suited hands is hidden profit</div>
-    <div class="pb">A suited hand may win only about 2% more often than its offsuit version, but its EV can be more than twice as high.<br><br>Reason 1: When you make a flush, you can win a much bigger pot.<br>Reason 2: When you hold a flush draw, you have more ways to continue profitably. You can keep betting and generate fold equity, or call with real outs. It also makes it harder for your opponent to know whether you are drawing or already strong.</div>
-    <div class="pr">KQs and KQo may differ by only about 2% in raw winning chance, but the EV gap is far larger.</div>
-  </div>
-
-  <div style="margin:20px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(96,165,250,0.08) 0%,transparent 100%);border-top:2px solid #60a5fa;">
-    <div style="font-size:15px;font-weight:700;color:#f1f5f9;"><span style="color:#60a5fa;">02</span> Drawing Discipline: Reduce Losses When Chasing</div>
-  </div>
-
-  <div class="pc">
-    <div class="pn">Rule 01</div>
-    <div class="pt">A drawing hand usually means you are behind</div>
-    <div class="pb">You need to accept one basic fact: when you are drawing, you are usually not ahead at the moment.
-
-That is why a draw generally needs extra strength — such as a pair, two overcards, a combo draw, or a nut draw — to make continuing worthwhile.</div>
-    <div class="pr">Three questions before continuing with a draw:
-If I hit, will I win a big pot?
-Are the stacks deep enough?
-Is the cost of drawing acceptable?</div>
-  </div>
-
-  <div class="pc">
-    <div class="pn">Rule 02</div>
-    <div class="pt">On a paired board, avoid chasing a flush whenever possible</div>
-    <div class="pb">If the board is paired and you are chasing a flush, you may already be drawing dead. Even worse, if you do make your flush, you may still lose your entire stack.<br><br>In most cases, you should only continue with a flush draw on a paired board when the pot is heads-up, the cost is low, and you hold a nut flush draw or a flush draw with two strong overcards.</div>
-    <div class="pr">If you chase a flush on a paired board, ask yourself this: if your opponent shoves the river, can you really fold?</div>
-  </div>
-
-  <div class="pc">
-    <div class="pn">Rule 03</div>
-    <div class="pt">On a flush-heavy board, do not chase a straight unless the price is low</div>
-    <div class="pb">When the board is already favorable for flushes, chasing a straight becomes much less attractive. In most cases, you should continue only if the price is cheap.<br><br>Also, if you complete your straight on a board where a flush is possible, you must be ready to fold against heavy action.</div>
-    <div class="pr">On a flush-heavy board, chase a straight only at a low cost.</div>
-  </div>
-
-  <div class="pc">
-    <div class="pn">Rule 04</div>
-    <div class="pt">Do not chase the low end of a straight — only draw to the nut end</div>
-    <div class="pb">In multiway pots and limped pots, completing the bottom end of a straight can easily become a disaster. On boards that are both paired and flush-heavy, you should not be chasing straights at all — especially not weak straights or gutshots.</div>
-    <div class="pr">Only draw to the higher end of a straight.</div>
-  </div>
-
-  <div style="margin:20px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(96,165,250,0.08) 0%,transparent 100%);border-top:2px solid #60a5fa;">
-    <div style="font-size:15px;font-weight:700;color:#f1f5f9;"><span style="color:#60a5fa;">03</span> Four Overrated Hand Types in Home Games</div>
-  </div>
-
-  <div class="pc">
-    <div class="pb">
-      <div style="margin-bottom:10px;"><span style="color:#60a5fa;font-weight:700;">01</span> <span style="color:#c8d6e8;font-weight:600;">Aces and kings with weak kickers</span><br>
-      <span style="color:#7a90aa;font-size:11px;">You make top pair, but often win a small pot and lose a big one.</span></div>
-      <div style="margin-bottom:10px;"><span style="color:#60a5fa;font-weight:700;">02</span> <span style="color:#c8d6e8;font-weight:600;">Ordinary flush draws</span><br>
-      <span style="color:#7a90aa;font-size:11px;">If the draw is not to the nuts, and you do not also have a pair or a combo draw, calling large bets is often not justified by the price — and even when you hit, you may still lose.</span></div>
-      <div style="margin-bottom:10px;"><span style="color:#60a5fa;font-weight:700;">03</span> <span style="color:#c8d6e8;font-weight:600;">Offsuit high cards without an ace</span><br>
-      <span style="color:#7a90aa;font-size:11px;">Making one pair does not necessarily mean making a strong hand. Examples include KJo, KTo, QJo, QTo, and T9o.</span></div>
-      <div><span style="color:#60a5fa;font-weight:700;">04</span> <span style="color:#c8d6e8;font-weight:600;">Small pocket pairs</span><br>
-      <span style="color:#7a90aa;font-size:11px;">Playing too many hands like 22–55 from early position, or calling 3-bets with small pocket pairs, is often a losing habit.</span></div>
+  <div style="padding-left:34px;">
+    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">Loose preflop calling with weak hands is one of the biggest sources of loss, because many of those losses happen in small and medium pots and often go unnoticed.</p>
+    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">Simply cutting down calls with hands like A8o, A7o, KTo, QJo, QTo, JTo, 86s, and 65s can improve your results quickly. These hands too often make dominated pairs, weak draws, and difficult postflop situations.</p>
+    <div style="background:#60a5fa10;border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;">
+      <span style="font-size:12px;font-weight:700;color:#60a5fa;">Rule: </span><span style="font-size:12px;color:#cbd5e1;">Tightening loose preflop calls is one of the fastest ways to improve your win rate.</span>
     </div>
   </div>
-
-
-<div style="margin:20px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(96,165,250,0.08) 0%,transparent 100%);border-top:2px solid #60a5fa;"><div style="font-size:15px;font-weight:700;color:#f1f5f9;line-height:1.5;"><span style="color:#60a5fa;">04</span> Quick Outs Reference (with the Rule of 2 and 4)</div></div>
-
-  <div class="pc" style="padding:0;overflow:hidden;border:1px solid #2d3f55;">
-    <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <tr><th style="padding:8px 8px;text-align:left;color:#60a5fa;font-weight:600;background:rgba(96,165,250,0.12);border-bottom:1px solid #2d3f55;width:30%;">Draw Type</th><th style="padding:8px 8px;text-align:left;color:#60a5fa;font-weight:600;background:rgba(96,165,250,0.12);border-bottom:1px solid #2d3f55;width:10%;border-left:1px solid #2d3f55;">Outs</th><th style="padding:8px 8px;text-align:left;color:#60a5fa;font-weight:600;background:rgba(96,165,250,0.12);border-bottom:1px solid #2d3f55;width:12%;border-left:1px solid #2d3f55;">From Flop</th><th style="padding:8px 8px;text-align:left;color:#60a5fa;font-weight:600;background:rgba(96,165,250,0.12);border-bottom:1px solid #2d3f55;width:12%;border-left:1px solid #2d3f55;">From Turn</th></tr>
-      <tr><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-bottom:1px solid #1e2d3d;">Nut flush draw</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">9</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈36%</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈18%</td></tr>
-      <tr><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-bottom:1px solid #1e2d3d;">Open-ended straight draw (OESD)</td><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">8</td><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈32%</td><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈16%</td></tr>
-      <tr><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-bottom:1px solid #1e2d3d;">Flush + straight combo draw</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">15</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈54%</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈30%</td></tr>
-      <tr><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-bottom:1px solid #1e2d3d;">Ordinary flush draw</td><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">9</td><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈36%</td><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈18%</td></tr>
-      <tr><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-bottom:1px solid #1e2d3d;">Two overcards</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">6</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈24%</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈12%</td></tr>
-      <tr><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-bottom:1px solid #1e2d3d;">Gutshot straight draw</td><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">4</td><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈16%</td><td style="background:rgba(255,255,255,0.02);padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;border-bottom:1px solid #1e2d3d;">≈8%</td></tr>
-      <tr><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;">Small pair to set</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;">2</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;">≈8%</td><td style="padding:9px 8px;color:#c8d6e8;border-bottom:1px solid #1e2d3d;vertical-align:top;border-left:1px solid #1e2d3d;">≈4%</td></tr>
-    </table>
-  </div>
-
-  <div class="pc" style="border-color:#334155;background:#0c1220;margin-top:4px;">
-    <div style="font-size:11px;color:#7a90aa;line-height:1.8;">
-      <span style="color:#60a5fa;font-weight:600;">Rule of 2 and 4:</span> With two cards to come after the flop, multiply your outs by 4.
-With one card to come after the turn, multiply your outs by 2.<br>
-      
-    </div>
-  </div>
-
-  </div>
-
-
-
-
-
 </div>
 
+<!-- Principle 3 -->
+<div style="margin-bottom:24px;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+    <div style="width:24px;height:24px;border-radius:50%;background:#60a5fa20;border:1.5px solid #60a5fa;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <span style="font-size:11px;font-weight:800;color:#60a5fa;">3</span>
+    </div>
+    <div style="font-size:14px;font-weight:800;color:#f1f5f9;line-height:1.3;">Bet decisively when ahead</div>
+  </div>
+  <div style="padding-left:34px;">
+    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">Profit comes mainly from betting when you are ahead and charging weaker hands, drawing hands, and smaller kickers to continue.</p>
+    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">This is the main engine of poker profit. Do not worry too much about "scaring people away." Players with real hands usually do not fold easily. And if hands with little equity fold, that is not a loss.</p>
+    <div style="background:#60a5fa10;border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;">
+      <span style="font-size:12px;font-weight:700;color:#60a5fa;">Rule: </span><span style="font-size:12px;color:#cbd5e1;">When you are ahead, bet. Strong hands should earn value, not just win at showdown.</span>
+    </div>
+  </div>
+</div>
+
+<!-- Principle 4 -->
+<div style="margin-bottom:24px;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+    <div style="width:24px;height:24px;border-radius:50%;background:#60a5fa20;border:1.5px solid #60a5fa;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <span style="font-size:11px;font-weight:800;color:#60a5fa;">4</span>
+    </div>
+    <div style="font-size:14px;font-weight:800;color:#f1f5f9;line-height:1.3;">With ordinary draws, chase only clean outs</div>
+  </div>
+  <div style="padding-left:34px;">
+    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">Ordinary draws are not strong hands. Here, "ordinary draws" means draws that are not combo draws, not pair-plus-draw hands, not two-overcard draws, and not nut draws.</p>
+    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">They should continue only when the bet is not too large and the price is good enough. Also, not all outs are worth buying: do not chase straights on flush-heavy boards, do not chase flushes on paired boards, and do not chase low-end straights.</p>
+    <div style="background:#60a5fa10;border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;">
+      <span style="font-size:12px;font-weight:700;color:#60a5fa;">Rule: </span><span style="font-size:12px;color:#cbd5e1;">Ordinary draws need both clean outs and the right price.</span>
+    </div>
+  </div>
+</div>
+
+<!-- Principle 5 -->
+<div style="margin-bottom:8px;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+    <div style="width:24px;height:24px;border-radius:50%;background:#60a5fa20;border:1.5px solid #60a5fa;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <span style="font-size:11px;font-weight:800;color:#60a5fa;">5</span>
+    </div>
+    <div style="font-size:14px;font-weight:800;color:#f1f5f9;line-height:1.3;">Respect heavy bets and re-raises</div>
+  </div></div>
+  <div style="padding-left:34px;">
+    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">In home games, especially against friends, heavy river bets and re-raises are usually real. Because of that, you should fold more often and bluff-catch less often against heavy action.</p>
+    <div style="background:#60a5fa10;border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;">
+      <span style="font-size:12px;font-weight:700;color:#60a5fa;">Rule: </span><span style="font-size:12px;color:#cbd5e1;">In home games, disciplined folds against strong action protect your profit.</span>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="spage" id="s1" style="display: none;">
 <div class="subpage active" id="s1p0">
 
@@ -1327,9 +1164,6 @@ You should raise now to protect your equity, charge the draws properly, and get 
 
 </div>
 
-</div>
-
-<!-- Bluff -->
 
 <div class="spage" id="s5" style="display: none;">
 <div class="subpage active" id="s5p0">
@@ -1598,6 +1432,18 @@ You should raise now to protect your equity, charge the draws properly, and get 
 
 
 </div>
+</div>
+
+<!-- Bluff -->
+
+
+
+
+
+
+
+
+
 <div class="bnav">
   <div class="ni on" id="bnav-learn" style="flex:1;" onclick="showLearn()"><div class="ni-ic on"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div><div class="ni-lb" style="color:#60a5fa;" id="lb-learn">Learn</div></div>
   <div class="ni" id="bnav-calc" style="flex:1;" onclick="showHandCalc()"><div class="ni-ic" id="ic-qr"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="7" height="9" rx="1.5"/><rect x="9.5" y="3" width="7" height="9" rx="1.5"/><rect x="5" y="14" width="7" height="9" rx="1.5"/><rect x="12.5" y="14" width="7" height="9" rx="1.5"/></svg></div><div class="ni-lb" id="lb-qr">Hand Lookup</div></div>
@@ -1825,7 +1671,7 @@ function showLearn() {
 <script>
 // ── Global constants (used by both progress system and nav) ──
 var STREET_IDS = [
-  ['s0p0','s0p2','s0p3'],
+  ['s6p0'],
   ['s1p0','s1p1','s1p2','s1p2b'],
   ['s2p0','s2p1','s2p2'],
   ['s3p0','s3p1','s3p2'],
@@ -1833,7 +1679,7 @@ var STREET_IDS = [
   ['s5p0','s5p1','s5p2'],
 ];
 var SUBPAGE_IDS = [
-  's0p0','s0p2','s0p3',
+  's6p0',
   's1p0','s1p1','s1p2','s1p2b',
   's2p0','s2p1','s2p2',
   's3p0','s3p1','s3p2',
@@ -1872,7 +1718,7 @@ function markRead(subpageId) {
 
 // ── Minimum read time per page (seconds) ──
 var MIN_READ_SECS = {
-  's0p0':30,'s0p2':20,'s0p3':30,
+  's6p0':30,'s6p1':60,
   's1p0':25,'s1p1':25,'s1p2':30,'s1p2b':35,
   's2p0':20,'s2p1':15,'s2p2':30,
   's3p0':20,'s3p1':15,'s3p2':35,
@@ -1986,7 +1832,7 @@ function updateAllUI() {
 
   var chaps = document.getElementById('prog-chapters');
   if (chaps) {
-    var streetNames = ['Overview','Preflop','Flop','Turn','River','Bluff'];
+    var streetNames = ['Playbook','Preflop','Flop','Turn','River','Bluff'];
     chaps.innerHTML = '';
     STREET_IDS.forEach(function(ids, i) {
       var doneCount = ids.filter(function(id){ return p[id]; }).length;
@@ -2023,14 +1869,14 @@ function updateAllUI() {
 }
 
 // ── Init ────────────────────────────────
-setTimeout(function(){ injectReadButtons(); updateAllUI(); startPageTimer('s0p0'); }, 100);
+setTimeout(function(){ injectReadButtons(); updateAllUI(); startPageTimer('s6p0'); }, 100);
 </script>
 
 <script>
 var cs=0,cb=0;
 
 var navConfig=[
-  [{label:'Overview'},{label:'Mindset'},{label:'Discipline'}],
+  [{label:'Playbook'},{label:'Principles'}],
   [{label:'Key Concepts'},{label:'Hand Chart'},{label:'Open'},{label:'Call & 3-bet'}],
   [{label:'Principles'},{label:'Quick Ref'},{label:'Examples'}],
   [{label:'Principles'},{label:'Quick Ref'},{label:'Examples'}],
@@ -2044,7 +1890,7 @@ function renderSubnav(i){
     var d=document.createElement('div');
     d.className='subtab'+(j===0?' active':'');
     d.textContent=cfg.label;
-    d.addEventListener('click', (function(idx){ return function(){ switchSub(idx); }; })(j));
+    d.addEventListener('click', (function(idx){ return function(){ if (cs===0) { handlePlaybookSubnav(idx); document.querySelectorAll('#subnav .subtab').forEach(function(t,j){t.classList.toggle('active',j===idx);}); return; } switchSub(idx); }; })(j));
     nav.appendChild(d);
   });
 }
@@ -2060,7 +1906,7 @@ function switchStreet(i){
     p.style.display = j===i ? 'block' : 'none';
   });
   renderSubnav(i);
-  document.querySelectorAll('#s'+i+' .subpage').forEach((p,j)=>{
+  document.querySelectorAll('#'+(['s6','s1','s2','s3','s4','s5'][i]||'s'+i)+' .subpage').forEach((p,j)=>{
     p.classList.toggle('active',j===0);
     p.style.display = j===0 ? 'block' : 'none';
   });
@@ -2081,7 +1927,7 @@ function switchSub(i){
   if (curPage) stopPageTimer(curPage);
   cb=i;
   document.querySelectorAll('#subnav .subtab').forEach((t,j)=>t.classList.toggle('active',j===i));
-  document.querySelectorAll('#s'+cs+' .subpage').forEach((p,j)=>{
+  document.querySelectorAll('#'+(['s6','s1','s2','s3','s4','s5'][cs]||'s'+cs)+' .subpage').forEach((p,j)=>{
     p.classList.toggle('active',j===i);
     p.style.display=j===i?'block':'none';
   });
@@ -2190,10 +2036,24 @@ setTimeout(function() {
   if (contentEl) contentEl.addEventListener('scroll', checkVisibleSVGs);
 }, 200);
 
+// Playbook subnav toggle
+function handlePlaybookSubnav(i) {
+  var pl = document.getElementById('s6-playbook-content');
+  var pr = document.getElementById('s6-principles');
+  if (i === 0) {
+    if (pl) pl.style.display = '';
+    if (pr) pr.style.display = 'none';
+  } else {
+    if (pl) pl.style.display = 'none';
+    if (pr) pr.style.display = 'block';
+  }
+}
+
 // Now safe to preload SVGs for the initial visible page
-loadPageSVGs('s0p0');
+loadPageSVGs('s6p0');
 
 </script>
+
 
 <!-- Hand Calculator Overlay -->
 <div id="qr-overlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#0c1220;overflow-y:auto;-webkit-overflow-scrolling:touch;z-index:200;padding:0 0 calc(80px + env(safe-area-inset-bottom));">
