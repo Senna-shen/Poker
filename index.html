@@ -22,13 +22,54 @@ body{background:#0c1220;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
 .inner{background:#0c1220;width:100%;flex:1;display:flex;flex-direction:column;position:relative;min-height:0;}
 .notch{display:none;}
 .top-bar{background:#0f172a;padding:calc(10px + env(safe-area-inset-top)) 18px 10px;display:flex;align-items:center;border-bottom:0.5px solid #1e293b;flex-shrink:0;}
+.app-brand{display:flex;align-items:center;gap:14px;}
+.app-logo-mark{width:32px;height:32px;display:block;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.22));}
 .app-logo{font-size:17px;font-weight:600;color:#60a5fa;letter-spacing:0.5px;}
-.street-tabs-top{background:#0c1220;display:flex;padding:8px 4px 0;gap:2px;overflow-x:visible;border-bottom:0.5px solid #1e293b;-webkit-mask-image:none;mask-image:none;}
+.street-tabs-top{
+  background:linear-gradient(180deg,rgba(12,18,32,0.98) 0%,rgba(10,17,30,0.96) 100%);
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:10px 12px 12px;
+  border-bottom:1px solid rgba(30,41,59,0.95);
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  -webkit-mask-image:none;
+  mask-image:none;
+  position:relative;
+  z-index:3;
+}
 .street-tabs-top::-webkit-scrollbar{display:none;}
-.stab{width:100%;text-align:center;padding:8px 2px;border-radius:10px 10px 0 0;font-size:11px;font-weight:700;color:#c8d6e8;cursor:pointer;border:0.5px solid transparent;border-bottom:none;white-space:nowrap;}
-.stab-wrap{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:stretch;position:relative;}
+.stab{
+  text-align:center;
+  padding:11px 16px 10px;
+  border-radius:16px;
+  font-size:11px;
+  font-weight:800;
+  color:#c3d0e2;
+  cursor:pointer;
+  border:1px solid rgba(50,64,89,0.98);
+  background:linear-gradient(180deg,rgba(18,27,46,0.98) 0%,rgba(13,20,35,0.98) 100%);
+  white-space:nowrap;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.03);
+  transition:all .18s ease;
+}
+.stab-wrap{
+  flex:0 0 auto;
+  min-width:max-content;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  position:relative;
+}
 #subnav{display:flex;flex-shrink:0;overflow-x:visible;scrollbar-width:none;-ms-overflow-style:none;padding:0 8px;border-bottom:0.5px solid #1e293b;border-left:0.5px solid #1e293b;border-right:0.5px solid #1e293b;background:#0f1a2e;}
-.stab.active{color:#60a5fa;background:#0f172a;border-color:#1e293b;border-bottom-color:#0f172a;}
+.stab.active{
+  color:#f8fbff;
+  background:linear-gradient(180deg,rgba(38,79,165,0.96) 0%,rgba(17,41,87,0.98) 100%);
+  border-color:rgba(123,171,255,0.68);
+  box-shadow:0 10px 22px rgba(3,9,23,0.32), inset 0 1px 0 rgba(255,255,255,0.14);
+}
 .subtab{flex:1;text-align:center;padding:10px 4px 8px;font-size:12px;font-weight:500;color:#c8d6e8;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;}
 .subtab.active{color:#60a5fa;border-bottom-color:#60a5fa;}
 
@@ -91,8 +132,22 @@ svg{max-width:100%;box-sizing:border-box;}
 .qs-item::before{content:"→";position:absolute;left:0;color:#60a5fa;font-size:12px;}
 
 /* ── Progress system ── */
-.stab-prog{display:flex;gap:2px;margin-top:3px;margin-bottom:4px;height:4px;align-items:center;justify-content:center;}
-.stab-dot{width:4px;height:4px;border-radius:50%;background:#1e293b;transition:background 0.3s;}
+.stab-prog{
+  display:flex;
+  gap:3px;
+  margin-top:6px;
+  margin-bottom:0;
+  height:4px;
+  align-items:center;
+  justify-content:center;
+}
+.stab-dot{
+  width:12px;
+  height:4px;
+  border-radius:999px;
+  background:rgba(71,85,105,0.46);
+  transition:background 0.3s,width 0.3s;
+}
 .stab-dot.done{background:#60a5fa;}
 .stab-dot.all{background:#22c55e;}
 .subtab-done::after{content:'✓';font-size:9px;margin-left:3px;color:#4ade80;vertical-align:middle;}
@@ -113,15 +168,49 @@ svg{max-width:100%;box-sizing:border-box;}
 .rc3{fill:#1a1400;stroke:#fbbf24;stroke-width:1.2px}
 .tc0{text-anchor:middle;font-family:SF Pro,system-ui;font-size:8px;font-weight:600}
 .tc1{text-anchor:end;font-family:SF Pro,system-ui;font-size:5px;opacity:0.5}
+
+/* Dashboard home */
+.dash-wrap{padding:calc(14px + env(safe-area-inset-top)) 14px 24px;background:linear-gradient(180deg,#162032 0%,#0f172a 34%,#0c1220 100%);} 
+.dash-hero{padding:18px 18px 16px;border:1px solid rgba(96,165,250,0.16);border-radius:18px;background:linear-gradient(180deg,rgba(96,165,250,0.10) 0%,rgba(15,23,42,0.96) 100%);box-shadow:0 10px 24px rgba(0,0,0,0.18);} 
+.dash-kicker{font-size:10px;font-weight:800;letter-spacing:2.6px;color:#7a90aa;text-transform:uppercase;margin-bottom:8px;} 
+.dash-title{font-size:24px;font-weight:900;color:#f8fbff;line-height:1.15;letter-spacing:-0.6px;} 
+.dash-sub{font-size:13px;color:#9fb0c5;line-height:1.65;margin-top:10px;} 
+.dash-mini{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;} 
+.dash-pill{padding:6px 10px;border-radius:999px;background:rgba(148,163,184,0.10);border:1px solid rgba(148,163,184,0.14);font-size:11px;color:#d7e3f2;} 
+.dash-subnav{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;} 
+.dash-chip{padding:8px 12px;border-radius:999px;background:#0f172a;border:1px solid #22314a;font-size:12px;font-weight:700;color:#c8d6e8;cursor:pointer;} 
+.dash-chip.active{color:#60a5fa;border-color:rgba(96,165,250,0.32);background:#0d1829;} 
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;} 
+.dash-card{border-radius:16px;padding:16px 15px;background:linear-gradient(180deg,#111b2f 0%,#0f172a 100%);border:1px solid #22314a;box-shadow:0 10px 20px rgba(0,0,0,0.14);cursor:pointer;} 
+.dash-card.primary{border-color:rgba(96,165,250,0.35);background:linear-gradient(180deg,#12203a 0%,#0f172a 100%);} 
+.dash-card .eyebrow{font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:#7a90aa;margin-bottom:8px;} 
+.dash-card .title{font-size:18px;font-weight:800;line-height:1.2;color:#f8fbff;} 
+.dash-card .copy{font-size:13px;line-height:1.65;color:#a9bbcf;margin-top:8px;} 
+.dash-link{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:13px;font-weight:700;color:#60a5fa;} 
+.dash-full{margin-top:12px;border-radius:16px;padding:16px;background:#0f172a;border:1px solid #22314a;box-shadow:0 10px 20px rgba(0,0,0,0.10);} 
+.dash-row{display:flex;justify-content:space-between;align-items:center;gap:12px;} 
+.dash-row .title{font-size:17px;font-weight:800;color:#f8fbff;} 
+.dash-row .meta{font-size:13px;color:#9fb0c5;line-height:1.55;margin-top:4px;} 
+.dash-btn{padding:10px 14px;border-radius:12px;background:#0d1829;border:1px solid rgba(96,165,250,0.26);color:#60a5fa;font-size:13px;font-weight:800;white-space:nowrap;cursor:pointer;} 
+.dash-section-title{font-size:14px;font-weight:800;color:#f1f5f9;letter-spacing:0.02em;margin:18px 2px 10px;} 
+.dash-browse{display:grid;grid-template-columns:1fr 1fr;gap:10px;} 
+.dash-browse-card{padding:14px 14px 13px;border-radius:14px;background:#0f172a;border:1px solid #1e293b;cursor:pointer;} 
+.dash-browse-top{display:flex;justify-content:space-between;align-items:center;gap:8px;} 
+.dash-browse-title{font-size:15px;font-weight:800;color:#f8fbff;line-height:1.2;} 
+.dash-browse-arrow{color:#60a5fa;font-size:18px;line-height:1;} 
+.dash-browse-copy{margin-top:8px;font-size:12px;line-height:1.6;color:#9fb0c5;} 
+@media (max-width:560px){.dash-grid{grid-template-columns:1fr;} .dash-row{align-items:flex-start;flex-direction:column;} .dash-btn{width:100%;text-align:center;}}
+
+
 </style>
 </head>
 <body>
 
 <div class="shell"><div class="inner">
 <div class="notch"></div>
-<div class="top-bar"><div class="app-logo">Texas Hold'em Home Game</div></div>
+<div class="top-bar"><div class="app-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="36" height="36"><defs><linearGradient id="sbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a3a6e"/><stop offset="100%" stop-color="#0a1628"/></linearGradient><linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f8fbff"/><stop offset="100%" stop-color="#eef2ff"/></linearGradient><linearGradient id="cgold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#92400e"/></linearGradient></defs><path d="M340,52 L472,108 L472,220 C472,282 412,322 340,344 C268,322 208,282 208,220 L208,108 Z" fill="url(#sbg)" stroke="#60a5fa" stroke-width="5"/><path d="M340,68 L457,117 L457,218 C457,272 402,308 340,328 C278,308 223,272 223,218 L223,117 Z" fill="none" stroke="rgba(147,197,253,0.25)" stroke-width="2"/><g transform="translate(308,190) rotate(-16)"><rect x="-42" y="-66" width="84" height="122" rx="10" fill="url(#cbg)" stroke="#c7d7f0" stroke-width="1.5"/><text x="-23" y="-30" style="font-family:serif;font-size:26px;fill:#111827;text-anchor:middle;">♠</text><text x="2" y="22" style="font-family:Georgia,serif;font-size:68px;font-weight:900;fill:#111827;text-anchor:middle;dominant-baseline:middle;">A</text></g><g transform="translate(372,190) rotate(13)"><rect x="-42" y="-66" width="84" height="122" rx="10" fill="url(#cbg)" stroke="#c7d7f0" stroke-width="1.5"/><text x="-23" y="-30" style="font-family:serif;font-size:26px;fill:#dc2626;text-anchor:middle;">♥</text><text x="2" y="22" style="font-family:Georgia,serif;font-size:68px;font-weight:900;fill:#dc2626;text-anchor:middle;dominant-baseline:middle;">A</text></g><ellipse cx="340" cy="316" rx="34" ry="8" fill="#000" opacity="0.3"/><ellipse cx="340" cy="308" rx="32" ry="11" fill="url(#cgold)" stroke="#78350f" stroke-width="1.5"/><ellipse cx="340" cy="308" rx="24" ry="8" fill="#1d4ed8" stroke="#60a5fa" stroke-width="1"/></svg><div class="app-logo">Texas Hold'em Home Game</div></div></div>
 <div class="street-tabs-top" id="street-tabs-top">
-  <div class="stab-wrap"><div class="stab active" id="stab-0">Playbook</div><div class="stab-prog" id="prog-dots-0"></div></div>
+  <div class="stab-wrap"><div class="stab active" id="stab-0">Home</div><div class="stab-prog" id="prog-dots-0"></div></div>
   <div class="stab-wrap"><div class="stab" id="stab-1">Preflop</div><div class="stab-prog" id="prog-dots-1"></div></div>
   <div class="stab-wrap"><div class="stab" id="stab-2">Flop</div><div class="stab-prog" id="prog-dots-2"></div></div>
   <div class="stab-wrap"><div class="stab" id="stab-3">Turn</div><div class="stab-prog" id="prog-dots-3"></div></div>
@@ -133,103 +222,83 @@ svg{max-width:100%;box-sizing:border-box;}
 
 <div class="spage" id="s6" style="display:block;width:100%;overflow-y:visible;">
 <div class="subpage active" id="s6p0" style="display:block;padding:0 0 60px;background:#0f172a;width:100%;box-sizing:border-box;">
-<div id="s6-playbook-content"><div style="padding:calc(14px + env(safe-area-inset-top)) 20px 16px;background:linear-gradient(180deg,#162032 0%,#0f172a 100%);border-bottom:1px solid rgba(255,255,255,0.07);"><div style="font-size:9px;font-weight:700;letter-spacing:3px;color:#475569;text-transform:uppercase;margin-bottom:6px;">Quick Playbook</div><div style="font-size:21px;font-weight:900;color:#f1f5f9;letter-spacing:-0.5px;line-height:1.2;">Texas Hold'em Home Game Guide</div><div class="pc" style="margin-top:10px;background:#0a1020;border-color:#334155;"><div class="pb" style="font-size:12px;color:#94a3b8;line-height:1.7;">This guide teaches simplified default decisions for typical home games. It is designed for study and fast recall, not for covering every table, stack depth, or opponent-specific adjustment.</div></div></div><div style="position:relative;padding:20px 14px 0 14px;"><div style="position:absolute;left:33px;top:20px;bottom:40px;width:1.5px;background:linear-gradient(to bottom,#60a5fa,#34d399,#22d3ee,#fbbf24,#fb923c,#f87171);opacity:0.18;border-radius:2px;"></div>
-<div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#60a5fa;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #60a5fa;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #60a5fa30;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">Profit Principles <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#60a5fa;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #60a5fa30;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="handlePlaybookSubnav(1);document.querySelectorAll('#subnav .subtab').forEach(function(t,j){t.classList.toggle('active',j===1)});"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#60a5fa;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #60a5fa20;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="height:20px;"></div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#60a5fa;margin-right:5px;font-size:14px;">▸</span>Strong starting-hand ranges beat weaker starting-hand ranges</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#60a5fa;margin-right:5px;font-size:14px;">▸</span>Preflop calling should be tighter than opening</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#60a5fa;margin-right:5px;font-size:14px;">▸</span>Bet decisively when ahead</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#60a5fa;margin-right:5px;font-size:14px;">▸</span>With ordinary draws, chase only clean outs; do not chase against heavy betting, and do not chase when the odds are not there</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#60a5fa;margin-right:5px;font-size:14px;">▸</span>Respect heavy bets and re-raises</div></div></div></div><div style="margin-left:24px;width:2px;height:20px;background:linear-gradient(to bottom,#60a5fa50,transparent);"></div><div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#34d399;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #34d399;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #34d39930;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">Preflop <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#34d399;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #34d39930;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="switchStreet(1)"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#34d399;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #34d39920;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#34d399;margin-right:5px;font-size:14px;">▸</span>Play only the 44 starting hands that can be long-term positive EV</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#34d399;margin-right:5px;font-size:14px;">▸</span>Calling too easily means losing chips</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#34d399;margin-right:5px;font-size:14px;">▸</span>With strong starting hands, open or 3-bet aggressively to isolate</div></div></div></div><div style="margin-left:24px;width:2px;height:20px;background:linear-gradient(to bottom,#34d39950,transparent);"></div><div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#22d3ee;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #22d3ee;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #22d3ee30;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">Flop <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#22d3ee;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #22d3ee30;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="switchStreet(1)"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#22d3ee;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #22d3ee20;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#22d3ee;margin-right:5px;font-size:14px;">▸</span>In heads-up pots, attack on flops that favor you; check on unfavorable boards</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#22d3ee;margin-right:5px;font-size:14px;">▸</span>In multiway pots, bet decisively when ahead; if you have nothing, check/fold</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#22d3ee;margin-right:5px;font-size:14px;">▸</span>With ordinary draws, try to continue at low cost and do not build a big pot proactively</div></div></div></div><div style="margin-left:24px;width:2px;height:20px;background:linear-gradient(to bottom,#22d3ee50,transparent);"></div><div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#fbbf24;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #fbbf24;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #fbbf2430;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">Turn <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#fbbf24;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #fbbf2430;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="switchStreet(1)"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#fbbf24;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #fbbf2420;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fbbf24;margin-right:5px;font-size:14px;">▸</span>In heads-up pots, attack when your hand improves, keep attacking when unchanged, and stop when downgraded</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fbbf24;margin-right:5px;font-size:14px;">▸</span>In multiway pots, attack when your hand improves, check/call when unchanged, and stop when downgraded</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fbbf24;margin-right:5px;font-size:14px;">▸</span>On the turn, semi-bluff only</div></div></div></div><div style="margin-left:24px;width:2px;height:20px;background:linear-gradient(to bottom,#fbbf2450,transparent);"></div><div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#fb923c;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #fb923c;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #fb923c30;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">River <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#fb923c;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #fb923c30;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="switchStreet(1)"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#fb923c;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #fb923c20;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fb923c;margin-right:5px;font-size:14px;">▸</span>When ahead, choose your value-bet sizing based on the target hands you want called by</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fb923c;margin-right:5px;font-size:14px;">▸</span>In multiway pots, make fewer thin value bets on the river</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#fb923c;margin-right:5px;font-size:14px;">▸</span>Facing heavy river betting, bluff-catch less and fold more often</div></div></div></div><div style="margin-left:24px;width:2px;height:20px;background:linear-gradient(to bottom,#fb923c50,transparent);"></div><div style="display:block;overflow:hidden;margin-bottom:0;position:relative;"><div style="position:absolute;left:24px;top:14px;bottom:0;width:2px;background:#f87171;opacity:0.25;"></div><div style="float:left;width:50px;text-align:center;"><div style="display:inline-block;border:1.5px solid #f87171;border-radius:20px;padding:5px 8px;font-size:11px;font-weight:800;color:#f1f5f9;background:#0d1829;box-shadow:0 0 8px #f8717130;white-space:nowrap;cursor:pointer;" onclick="switchStreet(1)">Bluffing <span style="opacity:0.5;">›</span></div></div><div style="float:left;width:18px;height:2px;background:#f87171;opacity:0.45;margin-top:16px;"></div><div style="overflow:hidden;border-left:2px solid #f8717130;padding:2px 44px 8px 12px;cursor:pointer;position:relative;" onclick="switchStreet(1)"><div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;color:#f87171;opacity:0.55;line-height:1;">›</div><div style="background:rgba(255,255,255,0.03);border:1px solid #f8717120;border-radius:10px;padding:6px 10px 4px;margin-top:6px;"><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#f87171;margin-right:5px;font-size:14px;">▸</span>Do not bluff calling stations, fish, or tilted players; bluff weak players more often</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#f87171;margin-right:5px;font-size:14px;">▸</span>Learn semi-bluff before pure air bluffs</div><div style="padding:6px 0;font-size:12.5px;color:#cbd5e1;line-height:1.5;"><span style="color:#f87171;margin-right:5px;font-size:14px;">▸</span>In heads-up pots, bluff on boards that favor you; in multiway pots, bluff less often</div></div></div></div>
-</div>
 
-<div style="padding:0 14px 20px;border-top:0.5px solid rgba(255,255,255,0.08);margin-top:24px;"><div class="pc" id="prog-overview" style="margin-top:0;"><div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-size:13px;font-weight:600;color:#f1f5f9;">Progress</div><div style="font-size:13px;color:#60a5fa;font-weight:600;" id="prog-text">0 / 16</div></div><div style="margin:8px 0;height:4px;background:#1e293b;border-radius:2px;overflow:hidden;"><div id="prog-bar" style="height:100%;background:#22c55e;border-radius:2px;width:0%;transition:width 0.4s;"></div></div><div id="prog-chapters" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;"></div></div></div>
-</div>
-<div id="s6-principles" style="display:none;background:#0f172a;">
-<div style="padding:28px 18px 40px;">
+<div id="s6-playbook-content">
+  <div class="dash-wrap">
+    <div class="dash-hero">
+      <div class="dash-kicker">Study Guide</div>
+      <div class="dash-title">Texas Hold'em Home Game Guide</div>
+      <div class="dash-sub">This guide teaches simplified default decisions for typical home games. It is designed for study and fast recall, not for covering every table, stack depth, or opponent-specific adjustment.</div>
+      <div class="dash-mini">
+        <div class="dash-pill">19 lessons</div>
+        <div class="dash-pill">Beginner defaults</div>
+        <div class="dash-pill">Home game focus</div>
+      </div>
+    </div>
 
-<h2 style="font-size:18px;font-weight:900;color:#f1f5f9;margin-bottom:4px;letter-spacing:-0.3px;">5 Profit Principles<br>for Home Games</h2>
-<div style="height:2px;width:40px;background:#60a5fa;border-radius:2px;margin-bottom:32px;"></div>
+    <div class="dash-grid">
+      <div class="dash-card primary" onclick="switchStreet(1)">
+        <div class="eyebrow">Start Here</div>
+        <div class="title">Start with Preflop</div>
+        <div class="copy">Learn the core hands, position, and preflop defaults before moving street by street.</div>
+        <div class="dash-link">Open module <span>›</span></div>
+      </div>
+      <div class="dash-card primary" onclick="switchStreet(1);switchSub(1)">
+        <div class="eyebrow">Quick Tool</div>
+        <div class="title">44 Starting Hands</div>
+        <div class="copy">Quick reference for the 44 core starting hands and beginner default decisions.</div>
+        <div class="dash-link">Open chart <span>›</span></div>
+      </div>
+    </div>
 
-<!-- Principle 1 -->
-<div style="margin-bottom:24px;">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-    <div style="width:24px;height:24px;border-radius:50%;background:#60a5fa20;border:1.5px solid #60a5fa;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-      <span style="font-size:11px;font-weight:800;color:#60a5fa;">1</span>
+    <div class="dash-full">
+      <div class="dash-row">
+        <div>
+          <div class="title">Continue Learning</div>
+          <div class="meta" id="continue-meta">Resume with Flop · Quick Reference and keep your progress moving.</div>
+        </div>
+        <div class="dash-btn" onclick="resumeLastPage()">Resume</div>
+      </div>
+      <div style="margin-top:12px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-size:12px;color:#f1f5f9;font-weight:700;">Progress</div>
+          <div style="font-size:12px;color:#60a5fa;font-weight:700;" id="prog-text">0 / 16</div>
+        </div>
+        <div style="margin:8px 0;height:5px;background:#1e293b;border-radius:3px;overflow:hidden;">
+          <div id="prog-bar" style="height:100%;background:linear-gradient(90deg,#3b82f6,#22c55e);border-radius:3px;width:0%;transition:width 0.4s;"></div>
+        </div>
+        <div id="prog-chapters" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;"></div>
+      </div>
     </div>
-    <div style="font-size:14px;font-weight:800;color:#f1f5f9;line-height:1.3;">Strong starting-hand ranges beat weaker starting-hand ranges</div>
-  </div>
-  <div style="padding-left:34px;">
-    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">If your starting-hand range is consistently stronger than your opponent's range, then even if both of you play at the same skill level, you will still be profitable in the long run.</p>
-    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">This is the deepest profit logic in poker. A stronger range naturally makes bigger pairs, stronger flushes, better kickers, and stronger high-card hands when both players miss.</p>
-    <div style="background:#60a5fa10;border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;">
-      <span style="font-size:12px;font-weight:700;color:#60a5fa;">Rule: </span><span style="font-size:12px;color:#cbd5e1;">Long-term profit begins with starting from stronger ranges more often.</span>
-    </div>
-  </div>
-</div>
 
-<!-- Principle 2 -->
-<div style="margin-bottom:24px;">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-    <div style="width:24px;height:24px;border-radius:50%;background:#60a5fa20;border:1.5px solid #60a5fa;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-      <span style="font-size:11px;font-weight:800;color:#60a5fa;">2</span>
-    </div>
-    <div style="font-size:14px;font-weight:800;color:#f1f5f9;line-height:1.3;">Preflop calling should be tighter than opening</div>
-  </div>
-  <div style="padding-left:34px;">
-    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">Loose preflop calling with weak hands is one of the biggest sources of loss, because many of those losses happen in small and medium pots and often go unnoticed.</p>
-    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">Simply cutting down calls with hands like A8o, A7o, KTo, QJo, QTo, JTo, 86s, and 65s can improve your results quickly. These hands too often make dominated pairs, weak draws, and difficult postflop situations.</p>
-    <div style="background:#60a5fa10;border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;">
-      <span style="font-size:12px;font-weight:700;color:#60a5fa;">Rule: </span><span style="font-size:12px;color:#cbd5e1;">Tightening loose preflop calls is one of the fastest ways to improve your win rate.</span>
-    </div>
-  </div>
-</div>
+    <div class="dash-section-title">Browse by Street</div>
+    <div class="dash-browse">
 
-<!-- Principle 3 -->
-<div style="margin-bottom:24px;">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-    <div style="width:24px;height:24px;border-radius:50%;background:#60a5fa20;border:1.5px solid #60a5fa;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-      <span style="font-size:11px;font-weight:800;color:#60a5fa;">3</span>
-    </div>
-    <div style="font-size:14px;font-weight:800;color:#f1f5f9;line-height:1.3;">Bet decisively when ahead</div>
-  </div>
-  <div style="padding-left:34px;">
-    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">Profit comes mainly from betting when you are ahead and charging weaker hands, drawing hands, and smaller kickers to continue.</p>
-    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">This is the main engine of poker profit. Do not worry too much about "scaring people away." Players with real hands usually do not fold easily. And if hands with little equity fold, that is not a loss.</p>
-    <div style="background:#60a5fa10;border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;">
-      <span style="font-size:12px;font-weight:700;color:#60a5fa;">Rule: </span><span style="font-size:12px;color:#cbd5e1;">When you are ahead, bet. Strong hands should earn value, not just win at showdown.</span>
-    </div>
-  </div>
-</div>
-
-<!-- Principle 4 -->
-<div style="margin-bottom:24px;">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-    <div style="width:24px;height:24px;border-radius:50%;background:#60a5fa20;border:1.5px solid #60a5fa;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-      <span style="font-size:11px;font-weight:800;color:#60a5fa;">4</span>
-    </div>
-    <div style="font-size:14px;font-weight:800;color:#f1f5f9;line-height:1.3;">With ordinary draws, chase only clean outs</div>
-  </div>
-  <div style="padding-left:34px;">
-    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">Ordinary draws are not strong hands. Here, "ordinary draws" means draws that are not combo draws, not pair-plus-draw hands, not two-overcard draws, and not nut draws.</p>
-    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">They should continue only when the bet is not too large and the price is good enough. Also, not all outs are worth buying: do not chase straights on flush-heavy boards, do not chase flushes on paired boards, and do not chase low-end straights.</p>
-    <div style="background:#60a5fa10;border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;">
-      <span style="font-size:12px;font-weight:700;color:#60a5fa;">Rule: </span><span style="font-size:12px;color:#cbd5e1;">Ordinary draws need both clean outs and the right price.</span>
+      <div class="dash-browse-card" onclick="switchStreet(1)">
+        <div class="dash-browse-top"><div class="dash-browse-title">Preflop</div><div class="dash-browse-arrow">›</div></div>
+        <div class="dash-browse-copy">Core hands, position, opening ranges, and when to call, 3-bet, or fold.</div>
+      </div>
+      <div class="dash-browse-card" onclick="switchStreet(2)">
+        <div class="dash-browse-top"><div class="dash-browse-title">Flop</div><div class="dash-browse-arrow">›</div></div>
+        <div class="dash-browse-copy">Board texture, c-bets, draw strength, and common heads-up vs multiway decisions.</div>
+      </div>
+      <div class="dash-browse-card" onclick="switchStreet(3)">
+        <div class="dash-browse-top"><div class="dash-browse-title">Turn</div><div class="dash-browse-arrow">›</div></div>
+        <div class="dash-browse-copy">Second barrels, dangerous cards, hand downgrades, and disciplined folds.</div>
+      </div>
+      <div class="dash-browse-card" onclick="switchStreet(4)">
+        <div class="dash-browse-top"><div class="dash-browse-title">River</div><div class="dash-browse-arrow">›</div></div>
+        <div class="dash-browse-copy">Value-bet sizing, target hands, thin value, and bluff-catching discipline.</div>
+      </div>
+      <div class="dash-browse-card" onclick="switchStreet(5)">
+        <div class="dash-browse-top"><div class="dash-browse-title">Bluffing</div><div class="dash-browse-arrow">›</div></div>
+        <div class="dash-browse-copy">When bluffing works, where to start, and why multiway bluffing should stay rare.</div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Principle 5 -->
-<div style="margin-bottom:8px;">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-    <div style="width:24px;height:24px;border-radius:50%;background:#60a5fa20;border:1.5px solid #60a5fa;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-      <span style="font-size:11px;font-weight:800;color:#60a5fa;">5</span>
-    </div>
-    <div style="font-size:14px;font-weight:800;color:#f1f5f9;line-height:1.3;">Respect heavy bets and re-raises</div>
-  </div></div>
-  <div style="padding-left:34px;">
-    <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:8px;">In home games, especially against friends, heavy river bets and re-raises are usually real. Because of that, you should fold more often and bluff-catch less often against heavy action.</p>
-    <div style="background:#60a5fa10;border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;">
-      <span style="font-size:12px;font-weight:700;color:#60a5fa;">Rule: </span><span style="font-size:12px;color:#cbd5e1;">In home games, disciplined folds against strong action protect your profit.</span>
-    </div>
-  </div>
-</div>
 
-</div>
 </div>
 
 </div>
@@ -1761,6 +1830,11 @@ function onContentScroll() {
 
 // ── Start page timer ────────────────────
 function startPageTimer(id) {
+  // Track last visited page (skip Home s6p0)
+  if (id !== 's6p0') {
+    try { localStorage.setItem('pg_last_page', JSON.stringify({id:id,cs:cs,cb:cb})); } catch(e){}
+    updateContinueLearning();
+  }
   var p = loadProgress();
   if (!p || p[id]) return;
   var state = pageState[id];
@@ -1832,7 +1906,7 @@ function updateAllUI() {
 
   var chaps = document.getElementById('prog-chapters');
   if (chaps) {
-    var streetNames = ['Playbook','Preflop','Flop','Turn','River','Bluff'];
+    var streetNames = ['Home','Preflop','Flop','Turn','River','Bluff'];
     chaps.innerHTML = '';
     STREET_IDS.forEach(function(ids, i) {
       var doneCount = ids.filter(function(id){ return p[id]; }).length;
@@ -1868,15 +1942,52 @@ function updateAllUI() {
   }
 }
 
+// ── Continue Learning ──────────────────────────────────────
+var STREET_LABELS = ['Home','Preflop','Flop','Turn','River','Bluff'];
+var SUB_LABELS = {
+  's6p0':'Home',
+  's1p0':'Key Concepts','s1p1':'Hand Chart','s1p2':'Open','s1p2b':'Call & 3-bet',
+  's2p0':'Principles','s2p1':'Quick Ref','s2p2':'Examples',
+  's3p0':'Principles','s3p1':'Quick Ref','s3p2':'Examples',
+  's4p0':'Principles','s4p1':'Quick Ref','s4p2':'Examples',
+  's5p0':'Principles','s5p1':'Quick Ref','s5p2':'Examples'
+};
+
+function updateContinueLearning() {
+  var el = document.getElementById('continue-meta');
+  if (!el) return;
+  try {
+    var last = JSON.parse(localStorage.getItem('pg_last_page'));
+    if (last && last.id && last.id !== 's6p0') {
+      var street = STREET_LABELS[last.cs] || '';
+      var sub = SUB_LABELS[last.id] || '';
+      el.textContent = 'Continue with ' + street + (sub ? ' · ' + sub : '');
+    }
+  } catch(e) {}
+}
+
+function resumeLastPage() {
+  try {
+    var last = JSON.parse(localStorage.getItem('pg_last_page'));
+    if (last && last.cs !== undefined) {
+      switchStreet(last.cs);
+      if (last.cb !== undefined && last.cb > 0) setTimeout(function(){ switchSub(last.cb); }, 50);
+      return;
+    }
+  } catch(e) {}
+  // Default fallback
+  switchStreet(1);
+}
+
 // ── Init ────────────────────────────────
-setTimeout(function(){ injectReadButtons(); updateAllUI(); startPageTimer('s6p0'); }, 100);
+setTimeout(function(){ injectReadButtons(); updateAllUI(); startPageTimer('s6p0'); updateContinueLearning(); }, 100);
 </script>
 
 <script>
 var cs=0,cb=0;
 
 var navConfig=[
-  [{label:'Playbook'},{label:'Principles'}],
+  [],
   [{label:'Key Concepts'},{label:'Hand Chart'},{label:'Open'},{label:'Call & 3-bet'}],
   [{label:'Principles'},{label:'Quick Ref'},{label:'Examples'}],
   [{label:'Principles'},{label:'Quick Ref'},{label:'Examples'}],
@@ -1886,11 +1997,12 @@ var navConfig=[
 function renderSubnav(i){
   var nav=document.getElementById('subnav');
   nav.innerHTML='';
+  nav.style.display = (navConfig[i] && navConfig[i].length > 1) ? '' : 'none';
   navConfig[i].forEach(function(cfg,j){
     var d=document.createElement('div');
     d.className='subtab'+(j===0?' active':'');
     d.textContent=cfg.label;
-    d.addEventListener('click', (function(idx){ return function(){ if (cs===0) { handlePlaybookSubnav(idx); document.querySelectorAll('#subnav .subtab').forEach(function(t,j){t.classList.toggle('active',j===idx);}); return; } switchSub(idx); }; })(j));
+    d.addEventListener('click', (function(idx){ return function(){ switchSub(idx); }; })(j));
     nav.appendChild(d);
   });
 }
@@ -1900,7 +2012,7 @@ function switchStreet(i){
   if (prevPage) stopPageTimer(prevPage);
   cs=i; cb=0;
   // Reset Playbook subtab to Playbook (not Principles) when switching to Playbook tab
-  if (i === 0) { handlePlaybookSubnav(0); }
+  
   const tabs = document.querySelectorAll('.stab');
   tabs.forEach((t,j)=>t.classList.toggle('active',j===i));
   document.querySelectorAll('.spage').forEach((p,j)=>{
@@ -2039,17 +2151,7 @@ setTimeout(function() {
 }, 200);
 
 // Playbook subnav toggle
-function handlePlaybookSubnav(i) {
-  var pl = document.getElementById('s6-playbook-content');
-  var pr = document.getElementById('s6-principles');
-  if (i === 0) {
-    if (pl) pl.style.display = '';
-    if (pr) pr.style.display = 'none';
-  } else {
-    if (pl) pl.style.display = 'none';
-    if (pr) pr.style.display = 'block';
-  }
-}
+
 
 // Now safe to preload SVGs for the initial visible page
 loadPageSVGs('s6p0');
