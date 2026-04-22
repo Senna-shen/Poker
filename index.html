@@ -33,6 +33,7 @@
 #s3{--tab-accent:#4F46E5;--tab-accent-soft:#EEF2FF;--tab-accent-line:rgba(79,70,229,0.10);}
 #s4{--tab-accent:#4338CA;--tab-accent-soft:#EEF2FF;--tab-accent-line:rgba(67,56,202,0.10);}
 #s5{--tab-accent:#D97706;--tab-accent-soft:#FFF7ED;--tab-accent-line:rgba(217,119,6,0.10);}
+#s7{--tab-accent:#B45309;--tab-accent-soft:#FFFBEB;--tab-accent-line:rgba(180,83,9,0.10);}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{overflow:hidden;height:100%;height:100dvh;}
 body{background:#f1f5f9;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
@@ -263,6 +264,112 @@ svg{max-width:100%;box-sizing:border-box;}
 .pt2 td{
   color:#334155 !important;
 }
+
+/* ─── Video Card Component (v11) ─── */
+.vc {
+  background: #FFFFFF; border: 1px solid #E2E8F0;
+  border-radius: 14px; overflow: hidden; margin-bottom: 14px;
+}
+.vc-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 14px;
+}
+.vc-hand-num {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  color: #64748B; text-transform: uppercase;
+}
+.vc-badge {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 10px;
+}
+.vc-badge.attacker { background: #FEE2E2; color: #B91C1C; }
+.vc-badge.defender { background: #DBEAFE; color: #1D4ED8; }
+.vc-video {
+  position: relative; margin: 0; aspect-ratio: 9 / 16;
+  max-height: 480px; background: #0F172A;
+  overflow: hidden; cursor: pointer;
+}
+.vc-video img.poster-fallback {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+}
+.vc-video video {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; background: transparent;
+}
+.vc-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px; height: 72px; border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 3; pointer-events: none;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.vc-play::after {
+  content: ''; width: 0; height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 22px solid #0F172A;
+  margin-left: 5px;
+}
+.vc-video:hover .vc-play { transform: translate(-50%, -50%) scale(1.08); }
+.vc-video.playing .vc-play { opacity: 0; pointer-events: none; }
+.vc-video::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.05) 45%, transparent 70%);
+  z-index: 2; pointer-events: none;
+  transition: opacity 0.2s;
+}
+.vc-video.playing::after { opacity: 0; }
+.vc-opener {
+  padding: 12px 14px 6px;
+  font-size: 14.5px; color: #0F172A;
+  line-height: 1.65; font-weight: 400;
+}
+.vc-opener b { font-weight: 700; color: #0F172A; }
+.vc-analysis { padding: 6px 14px 10px; }
+.vc-action {
+  font-size: 13px; color: #334155; line-height: 1.55;
+  padding: 8px 12px;
+  background: var(--tab-accent-soft, #ECFEFF);
+  border-left: 3px solid var(--tab-accent, #0891B2);
+  border-radius: 0 7px 7px 0;
+  margin-bottom: 10px;
+}
+.vc-action b { color: var(--tab-accent, #0891B2); font-weight: 700; }
+.vc-commentary {
+  font-size: 13.5px; color: #334155; line-height: 1.6;
+}
+.vc-link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 14px; background: #F8FAFC;
+  border-top: 1px solid #E2E8F0; cursor: pointer;
+}
+.vc-link-text { font-size: 12px; color: #64748B; line-height: 1.4; }
+.vc-link-text b { color: var(--tab-accent, #0891B2); font-weight: 700; }
+.vc-link-arrow { color: var(--tab-accent, #0891B2); font-size: 16px; font-weight: 700; margin-left: 8px; }
+
+/* Card component (inline, in prose) */
+.pcard {
+  display: inline-flex; align-items: baseline;
+  font-family: 'SF Pro Display', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700; font-size: 16px; line-height: 1;
+  padding: 3px 6px; border-radius: 5px;
+  background: #FFFFFF; border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  margin: 0 2px; min-width: 24px;
+  justify-content: center; letter-spacing: -0.3px;
+  vertical-align: -2px;
+}
+.pcard .rank { color: #0F172A; }
+.pcard .suit { font-size: 15px; margin-left: 1px; line-height: 1; }
+.pcard .suit-s { color: #0F172A; }
+.pcard .suit-h { color: #DC2626; }
+.pcard .suit-d { color: #2563EB; }
+.pcard .suit-c { color: #16A34A; }
 </style>
 </head>
 <body>
@@ -335,7 +442,7 @@ svg{max-width:100%;box-sizing:border-box;}
     <div class="dash-section-title">Browse by Street</div>
     <div class="dash-browse">
 
-      <div class="dash-browse-card" onclick="switchStreet(1)" style="border-color:#fbbf24;background:#fffbeb;">
+      <div class="dash-browse-card" onclick="showProfitPrinciples()" style="border-color:#fbbf24;background:#fffbeb;">
         <div class="dash-browse-top"><div class="dash-browse-title" style="color:#92400e;">Profit Principles</div><div class="dash-browse-arrow" style="color:#d97706;">›</div></div>
         <div class="dash-browse-copy">Five core rules that drive long-term profit in home games.</div>
       </div>
@@ -871,51 +978,124 @@ In general:<br><br>
 
 <div class="subpage" id="s2p2" style="display: none;">
 
-  <div style="margin:8px 0 0;padding:12px 0 6px;"><div style="font-size:17px;font-weight:700;color:#0f172a;">Flop Hand Examples</div></div>
-  <div style="font-size:12px;color:#64748b;padding:2px 0 10px;">Seven common scenarios: multiway pots, heads-up pots, examples as the preflop aggressor, and examples as the caller.</div>
-  <div style="margin:8px 0 0;padding:12px 0 8px;"><div style="font-size:17px;font-weight:700;color:#0f172a;">Examples as the Preflop Aggressor</div></div>
-
-    <div style="margin:20px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(8,145,178,0.06) 0%,transparent 100%);border-top:2px solid #0891B2;"><div style="font-size:15px;font-weight:700;color:#0f172a;line-height:1.5;"><span style="color:#0891B2;">Example 1</span><span style="display:inline;"> · Multiway pot · Wet board · Missed flop → fold</span></div></div>
-  <div style="margin:0 0 6px;"><div class="svg-lazy" data-svgid="svg_8" data-page="s2p2"></div>
-    <div class="vd"><div class="va" style="color:#B91C1C;">Fold</div><div class="pc" style="margin-top:0;"><div class="pb" style="font-size:12px;color:#334155;line-height:1.7;">A5s completely misses on a wet J-T-9 board. In a 3-way pot, with MP already betting, the opponent can easily have a made hand or a strong draw. Folding is the disciplined choice.</div></div></div>
+  <div style="margin:8px 0 0;padding:12px 0 6px;">
+    <div style="font-size:17px;font-weight:700;color:#0f172a;">Flop · Video Examples</div>
+    <div style="font-size:12px;color:#64748b;padding:4px 0 0;">Real hands with commentary. Tap a video to play.</div>
   </div>
 
-  
-    <div style="margin:20px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(8,145,178,0.06) 0%,transparent 100%);border-top:2px solid #0891B2;"><div style="font-size:15px;font-weight:700;color:#0f172a;line-height:1.5;"><span style="color:#0891B2;">Example 2</span><span style="display:inline;"> · Multiway pot · Dry board · Value bet with an overpair</span></div></div>
-  <div class="tc"><div class="svg-lazy" data-svgid="svg_9" data-page="s2p2"></div>
-    <div class="vd"><div class="va" style="color:#15803D;">Bet 7 BB</div><div class="pc" style="margin-top:0;"><div class="pb" style="font-size:12px;color:#334155;line-height:1.7;">QQ is an overpair on a dry 9-6-2 board. In a multiway pot, this is still a value bet. Betting makes draws and weaker pairs pay to continue. If you get raised, then you can start considering a fold.</div></div></div>
+  <!-- Hand 01 · STR, Defender -->
+  <div class="vc">
+    <div class="vc-head">
+      <span class="vc-hand-num">Hand 01</span>
+      <span class="vc-badge defender">Defender</span>
+    </div>
+    <div class="vc-video" onclick="playVideo(this)">
+      <img class="poster-fallback" src="posters/s2p2_hand01.jpg" alt="" loading="lazy">
+      <video preload="none" poster="posters/s2p2_hand01.jpg" src="videos/s2p2_hand01.mp4" playsinline muted></video>
+      <div class="vc-play"></div>
+    </div>
+    <div class="vc-opener">
+      You hold <span class="pcard"><span class="rank">T</span><span class="suit suit-s">&spades;</span></span><span class="pcard"><span class="rank">9</span><span class="suit suit-s">&spades;</span></span> on <b>STR</b>, calling a 6 BB raise from <b>BTN</b>.
+    </div>
+    <div class="vc-analysis">
+      <div class="vc-action">
+        <b>Action:</b> Flop J&hearts; 8&diams; 2&clubs; &middot; You check &middot; BTN bets 8 BB &middot; You <b>call</b>
+      </div>
+      <div class="vc-commentary">
+        Open-ended straight draw. As STR you're out of position post-flop &mdash; calling keeps bluffs in and gets correct odds to peel. Raising here just folds out the weaker part of BTN's range.
+      </div>
+    </div>
+    <div class="vc-link">
+      <div class="vc-link-text">&rarr; <b>Flop Principle 04:</b> call plain draws, don't raise them</div>
+      <div class="vc-link-arrow">&rsaquo;</div>
+    </div>
   </div>
 
-  
-    <div style="margin:20px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(8,145,178,0.06) 0%,transparent 100%);border-top:2px solid #0891B2;"><div style="font-size:15px;font-weight:700;color:#0f172a;line-height:1.5;"><span style="color:#0891B2;">Example 3</span><span style="display:inline;"> · Heads-up pot · Wet board · Value bet top pair with a strong kicker</span></div></div>
-  <div class="tc"><div class="svg-lazy" data-svgid="svg_10" data-page="s2p2"></div>
-    <div class="vd"><div class="va" style="color:#334155;">Bet 6 BB</div><div class="pc" style="margin-top:0;"><div class="pb" style="font-size:12px;color:#334155;line-height:1.7;">KQ makes top pair, and the king is a strong kicker. Q♠T♠5♦ is a classic wet board: two spades and connected cards mean your opponent may continue with flush draws or straight draws. When you have top pair here, make them pay.</div></div></div>
+  <!-- Hand 02 · STR, Attacker -->
+  <div class="vc">
+    <div class="vc-head">
+      <span class="vc-hand-num">Hand 02</span>
+      <span class="vc-badge attacker">Attacker</span>
+    </div>
+    <div class="vc-video" onclick="playVideo(this)">
+      <img class="poster-fallback" src="posters/s2p2_hand02.jpg" alt="" loading="lazy">
+      <video preload="none" poster="posters/s2p2_hand02.jpg" src="videos/s2p2_hand02.mp4" playsinline muted></video>
+      <div class="vc-play"></div>
+    </div>
+    <div class="vc-opener">
+      You hold <span class="pcard"><span class="rank">A</span><span class="suit suit-h">&hearts;</span></span><span class="pcard"><span class="rank">K</span><span class="suit suit-h">&hearts;</span></span> on <b>STR</b>. Four limpers around, action returns to you &mdash; you raise to 12 BB. Two callers.
+    </div>
+    <div class="vc-analysis">
+      <div class="vc-action">
+        <b>Action:</b> Flop K&diams; 7&spades; 2&clubs; &middot; You <b>bet 18 BB</b> (60% pot)
+      </div>
+      <div class="vc-commentary">
+        Top-top in a bloated multi-way pot. Even though you're OOP post-flop, a big c-bet charges worse Kx and dry draws. Don't slow-play when the pot is already huge.
+      </div>
+    </div>
+    <div class="vc-link">
+      <div class="vc-link-text">&rarr; <b>Flop Principle 03:</b> bet decisively when ahead</div>
+      <div class="vc-link-arrow">&rsaquo;</div>
+    </div>
   </div>
 
-    <div style="margin:20px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(8,145,178,0.06) 0%,transparent 100%);border-top:2px solid #0891B2;"><div style="font-size:15px;font-weight:700;color:#0f172a;line-height:1.5;"><span style="color:#0891B2;">Example 4</span><span style="display:inline;"> · Heads-up pot · Dry board · Small c-bet after missing</span></div></div>
-  <div class="tc"><div class="svg-lazy" data-svgid="svg_11" data-page="s2p2"></div></div>
-  <div class="vd"><div class="va" style="color:#15803D;">Small c-bet, about 3 BB</div><div class="pc" style="margin-top:0;"><div class="pb" style="font-size:12px;color:#334155;line-height:1.7;">This is a heads-up pot on a dry board. KJ misses A♣7♦2♠ completely, but the board still favors the preflop raiser's range because the opener has more ace-x hands.
-
-A small c-bet applies pressure at a low cost, and the opponent may fold many weak hands immediately. If the opponent calls or raises, you can usually give up without losing too much.</div></div></div>
-
-    <div style="margin:20px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(8,145,178,0.06) 0%,transparent 100%);border-top:2px solid #0891B2;"><div style="font-size:15px;font-weight:700;color:#0f172a;line-height:1.5;"><span style="color:#0891B2;">Example 5</span><span style="display:inline;"> · Heads-up pot · Nut flush draw played aggressively</span></div></div>
-  <div style="margin:0 0 6px;"><div class="svg-lazy" data-svgid="svg_12" data-page="s2p2"></div>
-    <div class="vd"><div class="va" style="color:#334155;">Bet 6 BB and play it as a strong draw</div><div class="pc" style="margin-top:0;"><div class="pb" style="font-size:12px;color:#334155;line-height:1.7;">A♥J♥ has the nut flush draw on T♥7♠2♥. If the flush comes in, it will be the best possible flush. In a heads-up pot, a strong draw like this can be played aggressively — you do not have to wait passively.</div></div></div>
+  <!-- Hand 03 · BTN, Attacker -->
+  <div class="vc">
+    <div class="vc-head">
+      <span class="vc-hand-num">Hand 03</span>
+      <span class="vc-badge attacker">Attacker</span>
+    </div>
+    <div class="vc-video" onclick="playVideo(this)">
+      <img class="poster-fallback" src="posters/s2p2_hand03.jpg" alt="" loading="lazy">
+      <video preload="none" poster="posters/s2p2_hand03.jpg" src="videos/s2p2_hand03.mp4" playsinline muted></video>
+      <div class="vc-play"></div>
+    </div>
+    <div class="vc-opener">
+      You hold <span class="pcard"><span class="rank">A</span><span class="suit suit-s">&spades;</span></span><span class="pcard"><span class="rank">Q</span><span class="suit suit-d">&diams;</span></span> on <b>BTN</b>. UTG limps into the straddle &mdash; you raise to 10 BB to isolate.
+    </div>
+    <div class="vc-analysis">
+      <div class="vc-action">
+        <b>Action:</b> Only STR calls &middot; Flop Q&clubs; 7&hearts; 3&diams; &middot; STR checks &middot; You <b>bet 12 BB</b>
+      </div>
+      <div class="vc-commentary">
+        Top pair good kicker vs. a range full of random two-card holdings. With position on every street, build the pot fast &mdash; STR often calls too wide and pays off.
+      </div>
+    </div>
+    <div class="vc-link">
+      <div class="vc-link-text">&rarr; <b>Flop Principle 02:</b> c-bet for value with range advantage</div>
+      <div class="vc-link-arrow">&rsaquo;</div>
+    </div>
   </div>
 
-<div class="ct ct-a" style="margin-top:4px;">
+  <!-- Hand 04 · BB, Defender -->
+  <div class="vc">
+    <div class="vc-head">
+      <span class="vc-hand-num">Hand 04</span>
+      <span class="vc-badge defender">Defender</span>
+    </div>
+    <div class="vc-video" onclick="playVideo(this)">
+      <img class="poster-fallback" src="posters/s2p2_hand04.jpg" alt="" loading="lazy">
+      <video preload="none" poster="posters/s2p2_hand04.jpg" src="videos/s2p2_hand04.mp4" playsinline muted></video>
+      <div class="vc-play"></div>
+    </div>
+    <div class="vc-opener">
+      You hold <span class="pcard"><span class="rank">J</span><span class="suit suit-c">&clubs;</span></span><span class="pcard"><span class="rank">T</span><span class="suit suit-c">&clubs;</span></span> on <b>BB</b>. STR raises to 8 BB after two limpers &mdash; you call.
+    </div>
+    <div class="vc-analysis">
+      <div class="vc-action">
+        <b>Action:</b> Flop 9&clubs; 8&hearts; 2&spades; &middot; You <b>check</b> &middot; STR bets 10 BB &middot; You call
+      </div>
+      <div class="vc-commentary">
+        Open-ended straight draw + backdoor flush. JTs plays well vs. STR's wide raising range &mdash; call to realize equity, avoid check-raising into likely value.
+      </div>
+    </div>
+    <div class="vc-link">
+      <div class="vc-link-text">&rarr; <b>Flop Principle 04:</b> call plain draws, don't raise them</div>
+      <div class="vc-link-arrow">&rsaquo;</div>
+    </div>
+  </div>
 
-  <div style="margin:8px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(96,165,250,0.06) 0%,transparent 100%);border-top:1px solid #334155;"><div style="font-size:13px;font-weight:600;color:#64748b;">Examples as the Caller</div></div>
-
-    <div style="margin:20px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(8,145,178,0.06) 0%,transparent 100%);border-top:2px solid #0891B2;"><div style="font-size:15px;font-weight:700;color:#0f172a;line-height:1.5;"><span style="color:#0891B2;">Example 6</span><span style="display:inline;"> · Caller · Dry board · Slow-play a very strong hand</span></div></div>
-  <div class="tc"><div class="svg-lazy" data-svgid="svg_13" data-page="s2p2"></div></div>
-  <div class="vd"><div class="va" style="color:#15803D;">Call 6 BB</div><div class="pc" style="margin-top:0;"><div class="pb" style="font-size:12px;color:#334155;line-height:1.7;">88 flops a set on 8-5-2, which is a very strong hand. On a dry board, there are not many dangerous turn cards, so calling and slow-playing can be better than raising immediately. If you raise now, weaker hands may fold and only stronger continuing hands remain, which makes it harder to win a big pot.</div></div></div>
-
-    <div style="margin:20px 0 0;padding:10px 0 8px;background:linear-gradient(90deg,rgba(8,145,178,0.06) 0%,transparent 100%);border-top:2px solid #0891B2;"><div style="font-size:15px;font-weight:700;color:#0f172a;line-height:1.5;"><span style="color:#0891B2;">Example 7</span><span style="display:inline;"> · Caller · Multiway pot on a wet board · Raise a strong hand for protection</span></div></div>
-  <div style="margin:0 0 6px;"><div class="svg-lazy" data-svgid="svg_14" data-page="s2p2"></div></div>
-  <div class="vd"><div class="va" style="color:#334155;">Raise to about 28 BB</div><div class="pc" style="margin-top:0;"><div class="pb" style="font-size:12px;color:#334155;line-height:1.7;">J9 makes top two pair on a wet J-9-7 board. In a multiway pot with connected cards and multiple draw possibilities, there are many hands that can continue with strong equity. The turn can easily become dangerous — an 8, a T, or a heart could all create serious problems.
-
-You should raise now to protect your equity, charge the draws properly, and get maximum value from hands that will still continue.</div></div></div></div></div>
+</div>
 </div>
 
   
@@ -1567,6 +1747,67 @@ You should raise now to protect your equity, charge the draws properly, and get 
 </div>
 
 
+<!-- Profit Principles Landing -->
+<div class="spage" id="s7" style="display: none;">
+<div class="subpage active" id="s7p0">
+
+  <div style="margin:6px 0 14px;padding:18px 18px 16px;background:linear-gradient(135deg,#92400E 0%,#B45309 60%,#D97706 100%);border-radius:14px;color:#FFFBEB;box-shadow:0 6px 16px rgba(180,83,9,0.18);">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#FDE68A;text-transform:uppercase;margin-bottom:8px;">5 Profit Principles</div>
+    <div style="font-size:20px;font-weight:800;color:#FFFBEB;line-height:1.3;margin-bottom:6px;">Profit Principles for Home Games</div>
+    <div style="font-size:13px;color:#FEF3C7;line-height:1.55;">Five core rules that drive long-term profit in home games. Memorize these before tuning anything else.</div>
+  </div>
+
+  <div class="pc">
+    <div class="pn">Principle 01</div>
+    <div class="pt">Strong starting-hand ranges beat weaker starting-hand ranges</div>
+    <div class="pb">If your starting-hand range is consistently stronger than your opponent's range, then even if both of you play at the same skill level, you will still be profitable in the long run.<br><br>This is the deepest profit logic in poker. A stronger range naturally makes bigger pairs, stronger flushes, better kickers, and stronger high-card hands when both players miss.</div>
+    <div class="pr">Long-term profit begins with starting from stronger ranges more often.</div>
+  </div>
+
+  <div class="pc">
+    <div class="pn">Principle 02</div>
+    <div class="pt">Preflop calling should be tighter than opening</div>
+    <div class="pb">Loose preflop calling with weak hands is one of the biggest sources of loss, because many of those losses happen in small and medium pots and often go unnoticed.<br><br>Simply cutting down calls with hands like A8o, A7o, KTo, QJo, QTo, JTo, 86s, and 65s can improve your results quickly. These hands too often make dominated pairs, weak draws, and difficult postflop situations.</div>
+    <div class="pr">Tightening loose preflop calls is one of the fastest ways to improve your win rate.</div>
+  </div>
+
+  <div class="pc">
+    <div class="pn">Principle 03</div>
+    <div class="pt">Bet decisively when ahead</div>
+    <div class="pb">Profit comes mainly from betting when you are ahead and charging weaker hands, drawing hands, and smaller kickers to continue.<br><br>This is the main engine of poker profit. Do not worry too much about "scaring people away." Players with real hands usually do not fold easily. And if hands with little equity fold, that is not a loss.</div>
+    <div class="pr">When you are ahead, bet. Strong hands should earn value, not just win at showdown.</div>
+  </div>
+
+  <div class="pc">
+    <div class="pn">Principle 04</div>
+    <div class="pt">With ordinary draws, chase only clean outs</div>
+    <div class="pb">Ordinary draws are not strong hands. Here, "ordinary draws" means draws that are not combo draws, not pair-plus-draw hands, not two-overcard draws, and not nut draws.<br><br>They should continue only when the bet is not too large and the price is good enough. Also, not all outs are worth buying: do not chase straights on flush-heavy boards, do not chase flushes on paired boards, and do not chase low-end straights.</div>
+    <div class="pr">Ordinary draws need both clean outs and the right price.</div>
+  </div>
+
+  <div class="pc">
+    <div class="pn">Principle 05</div>
+    <div class="pt">Respect heavy bets and re-raises</div>
+    <div class="pb">In home games, especially against friends, heavy river bets and re-raises are usually real. Because of that, you should fold more often and bluff-catch less often against heavy action.</div>
+    <div class="pr">In home games, disciplined folds against strong action protect your profit.</div>
+  </div>
+
+  <div style="display:flex;gap:10px;margin:18px 0 8px;">
+    <div onclick="switchStreet(0)" style="flex:1;padding:13px 14px;border-radius:12px;background:#ffffff;border:1px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#64748b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      <span style="font-size:14px;font-weight:600;color:#334155;">Back to Home</span>
+    </div>
+    <div onclick="switchStreet(1)" style="flex:1;padding:13px 14px;border-radius:12px;background:#B45309;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 2px 6px rgba(180,83,9,0.25);">
+      <span style="font-size:14px;font-weight:700;color:#FFFBEB;">Next: Preflop</span>
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#FFFBEB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </div>
+  </div>
+
+</div>
+</div>
+<!-- /Profit Principles Landing -->
+
+
 <!-- Bluff -->
 
 
@@ -2094,6 +2335,9 @@ function switchStreet(i){
     p.classList.toggle('active',j===i);
     p.style.display = j===i ? 'block' : 'none';
   });
+  // s7 is a standalone landing page (not in tab bar) — always hide on any street switch
+  var s7el = document.getElementById('s7');
+  if (s7el) { s7el.classList.remove('active'); s7el.style.display = 'none'; }
   renderSubnav(i);
   document.querySelectorAll('#'+(['s6','s1','s2','s3','s4','s5'][i]||'s'+i)+' .subpage').forEach((p,j)=>{
     p.classList.toggle('active',j===0);
@@ -2110,6 +2354,38 @@ function switchStreet(i){
     if (typeof startPageTimer==='function') startPageTimer(newPage);
     if (typeof loadPageSVGs==='function') loadPageSVGs(newPage);
   }
+}
+
+// Profit Principles landing page (s7) — standalone, not in tab bar.
+// Accessed only via the amber "Profit Principles" card on Home.
+function showProfitPrinciples(){
+  // Stop whatever timer is running on the current page
+  var prevStreet = STREET_IDS[cs];
+  var prevPage = prevStreet && prevStreet[cb !== undefined ? cb : 0];
+  if (prevPage && typeof stopPageTimer === 'function') stopPageTimer(prevPage);
+
+  // Hide every .spage, then show s7 explicitly
+  document.querySelectorAll('.spage').forEach(function(p){
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
+  var s7el = document.getElementById('s7');
+  if (s7el) { s7el.classList.add('active'); s7el.style.display = 'block'; }
+
+  // Clear active state on all top-level tabs and subnav
+  document.querySelectorAll('.stab').forEach(function(t){ t.classList.remove('active'); });
+  var tabBar = document.querySelector('.street-tabs-top');
+  if (tabBar) tabBar.setAttribute('data-active', '-1');
+  var nav = document.getElementById('subnav');
+  if (nav) { nav.innerHTML = ''; nav.style.display = 'none'; }
+  document.querySelectorAll('.stab-wrap').forEach(function(w){ w.classList.remove('pointed'); });
+
+  // Scroll to top
+  var c = document.querySelector('.content');
+  if (c) c.scrollTop = 0;
+  window.scrollTo(0,0);
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
 function switchSub(i){
   var curPage = STREET_IDS[cs] && STREET_IDS[cs][cb];
@@ -2230,6 +2506,17 @@ setTimeout(function() {
 
 // Now safe to preload SVGs for the initial visible page
 loadPageSVGs('s6p0');
+
+// Video card play handler (v11 cards)
+function playVideo(wrapper) {
+  var video = wrapper.querySelector('video');
+  if (!video) return;
+  if (!wrapper.classList.contains('playing')) {
+    wrapper.classList.add('playing');
+    video.setAttribute('controls', 'controls');
+    video.play().catch(function(err) { /* autoplay may be blocked */ });
+  }
+}
 
 </script>
 
