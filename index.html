@@ -285,8 +285,10 @@ svg{max-width:100%;box-sizing:border-box;}
 .vc-badge.attacker { background: #FEE2E2; color: #B91C1C; }
 .vc-badge.defender { background: #DBEAFE; color: #1D4ED8; }
 .vc-video {
-  position: relative; margin: 0; aspect-ratio: 9 / 16;
-  max-height: 480px; background: #0F172A;
+  position: relative; margin: 0;
+  width: 100%; height: 52vh;
+  max-height: 520px; min-height: 340px;
+  background: #0F172A;
   overflow: hidden; cursor: pointer;
 }
 .vc-video img.poster-fallback {
@@ -301,7 +303,7 @@ svg{max-width:100%;box-sizing:border-box;}
 .vc-play {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 72px; height: 72px; border-radius: 50%;
+  width: 64px; height: 64px; border-radius: 50%;
   background: rgba(255,255,255,0.95);
   box-shadow: 0 6px 20px rgba(0,0,0,0.35);
   display: flex; align-items: center; justify-content: center;
@@ -310,10 +312,10 @@ svg{max-width:100%;box-sizing:border-box;}
 }
 .vc-play::after {
   content: ''; width: 0; height: 0;
-  border-top: 14px solid transparent;
-  border-bottom: 14px solid transparent;
-  border-left: 22px solid #0F172A;
-  margin-left: 5px;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 19px solid #0F172A;
+  margin-left: 4px;
 }
 .vc-video:hover .vc-play { transform: translate(-50%, -50%) scale(1.08); }
 .vc-video.playing .vc-play { opacity: 0; pointer-events: none; }
@@ -326,8 +328,8 @@ svg{max-width:100%;box-sizing:border-box;}
 .vc-video.playing::after { opacity: 0; }
 .vc-opener {
   padding: 12px 14px 6px;
-  font-size: 14.5px; color: #0F172A;
-  line-height: 1.65; font-weight: 400;
+  font-size: 14px; color: #0F172A;
+  line-height: 1.6; font-weight: 400;
 }
 .vc-opener b { font-weight: 700; color: #0F172A; }
 .vc-analysis { padding: 6px 14px 10px; }
@@ -990,7 +992,7 @@ In general:<br><br>
       <span class="vc-badge defender">Defender</span>
     </div>
     <div class="vc-video" onclick="playVideo(this)">
-      <img class="poster-fallback" src="posters/s2p2_hand01.jpg" alt="" loading="lazy">
+      <img class="poster-fallback" onerror="this.style.display='none'" src="posters/s2p2_hand01.jpg" alt="" loading="lazy">
       <video preload="none" poster="posters/s2p2_hand01.jpg" src="videos/s2p2_hand01.mp4" playsinline muted></video>
       <div class="vc-play"></div>
     </div>
@@ -1018,7 +1020,7 @@ In general:<br><br>
       <span class="vc-badge attacker">Attacker</span>
     </div>
     <div class="vc-video" onclick="playVideo(this)">
-      <img class="poster-fallback" src="posters/s2p2_hand02.jpg" alt="" loading="lazy">
+      <img class="poster-fallback" onerror="this.style.display='none'" src="posters/s2p2_hand02.jpg" alt="" loading="lazy">
       <video preload="none" poster="posters/s2p2_hand02.jpg" src="videos/s2p2_hand02.mp4" playsinline muted></video>
       <div class="vc-play"></div>
     </div>
@@ -1046,7 +1048,7 @@ In general:<br><br>
       <span class="vc-badge attacker">Attacker</span>
     </div>
     <div class="vc-video" onclick="playVideo(this)">
-      <img class="poster-fallback" src="posters/s2p2_hand03.jpg" alt="" loading="lazy">
+      <img class="poster-fallback" onerror="this.style.display='none'" src="posters/s2p2_hand03.jpg" alt="" loading="lazy">
       <video preload="none" poster="posters/s2p2_hand03.jpg" src="videos/s2p2_hand03.mp4" playsinline muted></video>
       <div class="vc-play"></div>
     </div>
@@ -1074,7 +1076,7 @@ In general:<br><br>
       <span class="vc-badge defender">Defender</span>
     </div>
     <div class="vc-video" onclick="playVideo(this)">
-      <img class="poster-fallback" src="posters/s2p2_hand04.jpg" alt="" loading="lazy">
+      <img class="poster-fallback" onerror="this.style.display='none'" src="posters/s2p2_hand04.jpg" alt="" loading="lazy">
       <video preload="none" poster="posters/s2p2_hand04.jpg" src="videos/s2p2_hand04.mp4" playsinline muted></video>
       <div class="vc-play"></div>
     </div>
